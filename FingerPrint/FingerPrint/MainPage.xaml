@@ -11,10 +11,21 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" Loaded="OnPageLoaded">
+    shell:SystemTray.IsVisible="False" Loaded="OnPageLoaded">
 
-    <!--LayoutRoot 是包含所有页面内容的根网格-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+<!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <Grid.Resources>
+            <Storyboard x:Name="tipAnime">
+                <DoubleAnimation From="1" To="0" Duration="00:00:3"
+                                 Storyboard.TargetName="tips"
+                                 Storyboard.TargetProperty="Opacity">
+                    <DoubleAnimation.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="180"/>
@@ -48,14 +59,15 @@
 
         <!--ContentPanel - 在此处放置其他内容-->
         <TextBlock x:Name="msg"></TextBlock>
-        <Grid x:Name="DisplayPanel" Grid.Row="1">
+        <!--<Grid x:Name="DisplayPanel" Grid.Row="1">
             <Canvas x:Name="disp">
             </Canvas>
             <Rectangle VerticalAlignment="Top" Height="1" Fill="White" Stroke="White" StrokeThickness="1"/>
-        </Grid>
-        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
-            <Canvas x:Name="paint" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased" Background="Black"/>
-            <Rectangle VerticalAlignment="Top" Height="1" Fill="White" Stroke="White" StrokeThickness="1"/>
+        </Grid>-->
+        <Grid x:Name="ContentPanel" Grid.RowSpan="3" Margin="0">
+            <TextBlock x:Name="tips" Grid.RowSpan="1" VerticalAlignment="Top" FontSize="48" Foreground="#FF7F7F7F" />
+            <Canvas x:Name="paint" Background="Transparent" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased"/>
+            <!--<Rectangle VerticalAlignment="Top" Height="1" Fill="White" Stroke="White" StrokeThickness="1"/>-->
         </Grid>
 
         <!--取消注释，以显示对齐网格，从而帮助确保
