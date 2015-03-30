@@ -32,7 +32,7 @@ namespace FingerPrint
 
             old_point = new Point(0, 0);
             // 用于本地化 ApplicationBar 的示例代码
-            //BuildLocalizedApplicationBar();
+            BuildLocalizedApplicationBar();
         }
 
         private void OnPressed(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -131,13 +131,52 @@ namespace FingerPrint
             ApplicationBar = new ApplicationBar();
 
             // 创建新按钮并将文本值设置为 AppResources 中的本地化字符串。
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            appBarButton.Text = AppResources.AppBarButtonText;
-            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBarIconButton appBtn_line = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
+            appBtn_line.Text = AppResources.DT_line;
+            appBtn_line.Click += appBtn_line_Click;
+            ApplicationBarIconButton appBtn_circle = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
+            appBtn_circle.Text = AppResources.DT_circle;
+            appBtn_circle.Click += appBtn_circle_Click;
+            ApplicationBarIconButton appBtn_free = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
+            appBtn_free.Text = AppResources.DT_free;
+            appBtn_free.Click += appBtn_free_Click;
+            ApplicationBarIconButton appBtn_smart = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
+            appBtn_smart.Text = AppResources.DT_smart;
+            appBtn_smart.Click += appBtn_smart_Click;
+            ApplicationBar.Buttons.Add(appBtn_line);
+            ApplicationBar.Buttons.Add(appBtn_circle);
+            ApplicationBar.Buttons.Add(appBtn_free);
+            ApplicationBar.Buttons.Add(appBtn_smart);
 
             // 使用 AppResources 中的本地化字符串创建新菜单项。
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-            ApplicationBar.MenuItems.Add(appBarMenuItem);
+            ApplicationBarMenuItem appMenu_clear = new ApplicationBarMenuItem(AppResources.FO_clear);
+            appMenu_clear.Click += appMenu_clear_Click;
+            ApplicationBar.MenuItems.Add(appMenu_clear);
+        }
+
+        void appMenu_clear_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void appBtn_smart_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void appBtn_free_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void appBtn_circle_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void appBtn_line_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private double Dist(Point a, Point b)
