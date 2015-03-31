@@ -191,16 +191,16 @@ namespace FingerPrint
             tipAnime.Begin();
         }
 
-        private double Dist(Point a, Point b)
-        {
-            return Math.Sqrt((a.X - b.X) * (a.X - b.X) + (a.Y - b.Y) * (a.Y - b.Y));
-        }
+        //private double Dist(Point a, Point b)
+        //{
+        //    return Math.Sqrt((a.X - b.X) * (a.X - b.X) + (a.Y - b.Y) * (a.Y - b.Y));
+        //}
 
-        private double Angles(Point a, Point b)
-        {
-            double n = a.X * b.X + a.Y * b.Y, m = Math.Sqrt(a.X * a.X + a.Y * a.Y) * Math.Sqrt(b.X * b.X + b.Y * b.Y);
-            double ret = Math.Acos(n / m) * (180.0 / Math.PI), cross = a.X * b.Y - a.Y * b.X;
-            return cross > 0 ? ret : -ret;
-        }
+        //private double Angles(Point a, Point b)
+        //{
+        //    double n = a.X * b.X + a.Y * b.Y, m = Math.Sqrt(a.X * a.X + a.Y * a.Y) * Math.Sqrt(b.X * b.X + b.Y * b.Y);
+        //    double ret = Math.Acos(n / m) * (180.0 / Math.PI), cross = a.X * b.Y - a.Y * b.X;
+        //    return cross > 0 ? ret : -ret;
+        //}
     }
 }
