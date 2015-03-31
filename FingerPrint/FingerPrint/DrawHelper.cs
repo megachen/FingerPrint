@@ -154,20 +154,24 @@ namespace FingerPrint
                     //collect
                     if (distance > 8)
                     {
-                        points.Add(input);
                         Point vect_input = new Point(input.X - pt_collectlast.X, input.Y - pt_collectlast.Y);
-                        if (vect_input.X == 0.0 && vect_input.Y == 0.0) break;
+                        if (vect_input.X == 0.0 && vect_input.Y == 0.0) { pt_last = input; break; }
                         if (!(vect_last.X == 0.0 && vect_last.Y == 0.0))
                         {
                             double ang = CalcAngle(vect_input, vect_last);
-                            if (double.IsNaN(ang)) break;
-                            ang_sum += ang;
-                            angles.Add(ang);
-                            length.Add(distance);
+                            if (double.IsNaN(ang)) { pt_last = input; break; }
+                            if (Math.Abs(ang) < 100.0)
+                            {
+                                ang_sum += ang;
+                                angles.Add(ang);
+                                length.Add(distance);
+                                points.Add(input);
+                            }
                         }
                         else
                         {
                             ang_begin = CalcAngle(new Point(0, 1), vect_input);
+                            points.Add(input);
                         }
                         double distance2 = CalcDist(pt_begin, input);
                         if (distance2 > fardist) fardist = distance2;
@@ -187,17 +191,20 @@ namespace FingerPrint
         {
             if(state==Drawstate.Smart)
             {
-                //clear tempdraw
-                foreach(UIElement i in tempSmartDraw)
+                //test freedraw
+                if (CalcVariance(angles) < 250)
                 {
-                    board.Children.Remove(i);
-                }
+                    //clear tempdraw
+                    foreach (UIElement i in tempSmartDraw)
+                    {
+                        board.Children.Remove(i);
+                    }
 
-                //analyze & draw
-                if (angles.Count > 5)
-                {
+                    //analyze & draw
+                    //if (angles.Count > 5)
+                    //{
                     List<double> ang_stat = new List<double>(angles);
-                    ang_stat.RemoveRange(0, 2); ang_stat.RemoveRange(ang_stat.Count - 2, 2);
+                    ang_stat.RemoveRange(0, 0); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
                     double test_closure = CalcDist(pt_begin, input),
                         ang_avg = Math.Abs(CalcAverage(ang_stat));
                     if (ang_avg > 3 && test_closure < fardist / 2)
@@ -233,17 +240,20 @@ namespace FingerPrint
 
                         board.Children.Add(line);
                     }
-
-                    //finalize
-                    tempSmartDraw.Clear();
-                    angles.Clear();
-                    length.Clear();
-                    points.Clear();
-                    fardist = ang_begin = ang_sum = 0.0;
                 }
+
+                //finalize
+                tempSmartDraw.Clear();
+                angles.Clear();
+                length.Clear();
+                points.Clear();
+                fardist = ang_begin = ang_sum = 0.0;
+                //}
             }
             pt_begin = new Point(0, 0);
             pt_last = new Point(0, 0);
+            pt_collectlast = new Point(0, 0);
+            vect_last = new Point(0, 0);
             tempDraw = null;
         }
 
@@ -269,6 +279,13 @@ namespace FingerPrint
             double sum = 0.0;
             foreach (double i in input) sum += i;
             return sum;
+        }
+
+        private double CalcVariance(List<double> input)
+        {
+            double avg = CalcAverage(input), variance=0.0;
+            foreach (double i in input) { variance += (i - avg) * (i - avg); }
+            return variance/(double)input.Count;
         }
 
         private ParaCircle CalcCircleFitting()
