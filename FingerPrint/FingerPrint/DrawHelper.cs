@@ -191,56 +191,60 @@ namespace FingerPrint
         {
             if(state==Drawstate.Smart)
             {
-                //test freedraw
-                if (CalcVariance(angles) < 250)
+                List<double> ang_stat = new List<double>(angles);
+                ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
+                double test_closure = CalcDist(pt_begin, input),
+                    ang_avg = Math.Abs(CalcAverage(ang_stat));
+
+                //test line
+                if (ang_avg < 6 && test_closure / fardist >0.9)
                 {
                     //clear tempdraw
                     foreach (UIElement i in tempSmartDraw)
                     {
                         board.Children.Remove(i);
                     }
+                    //line
+                    Line line = new Line();
+                    line.X1 = pt_begin.X;
+                    line.Y1 = pt_begin.Y;
+                    line.X2 = input.X;
+                    line.Y2 = input.Y;
 
-                    //analyze & draw
-                    //if (angles.Count > 5)
-                    //{
-                    List<double> ang_stat = new List<double>(angles);
-                    ang_stat.RemoveRange(0, 0); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
-                    double test_closure = CalcDist(pt_begin, input),
-                        ang_avg = Math.Abs(CalcAverage(ang_stat));
-                    if (ang_avg > 3 && test_closure < fardist / 2)
-                    {
-                        //circle
-                        ParaCircle param = CalcCircleFitting();
+                    line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    line.StrokeStartLineCap = PenLineCap.Round;
+                    line.StrokeEndLineCap = PenLineCap.Round;
+                    line.StrokeThickness = 15;
+                    line.Opacity = 1;
 
-                        Ellipse ellipse = new Ellipse();
-                        Canvas.SetLeft(ellipse, param.X - param.R);
-                        Canvas.SetTop(ellipse, param.Y - param.R);
-
-                        ellipse.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
-                        ellipse.StrokeThickness = 15;
-                        ellipse.Width = ellipse.Height = param.R * 2;
-                        ellipse.Opacity = 1;
-
-                        board.Children.Add(ellipse);
-                    }
-                    else if (ang_avg < 6 && test_closure > fardist * 2 / 3)
-                    {
-                        //line
-                        Line line = new Line();
-                        line.X1 = pt_begin.X;
-                        line.Y1 = pt_begin.Y;
-                        line.X2 = input.X;
-                        line.Y2 = input.Y;
-
-                        line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
-                        line.StrokeStartLineCap = PenLineCap.Round;
-                        line.StrokeEndLineCap = PenLineCap.Round;
-                        line.StrokeThickness = 15;
-                        line.Opacity = 1;
-
-                        board.Children.Add(line);
-                    }
+                    board.Children.Add(line);
                 }
+                //test freedraw
+                else if (CalcVariance(angles) > 500)
+                {
+
+                }
+                else if(ang_avg > 3 && test_closure < fardist / 2)
+                {
+                    //clear tempdraw
+                    foreach (UIElement i in tempSmartDraw)
+                    {
+                        board.Children.Remove(i);
+                    }
+                    //circle
+                    ParaCircle param = CalcCircleFitting();
+
+                    Ellipse ellipse = new Ellipse();
+                    Canvas.SetLeft(ellipse, param.X - param.R);
+                    Canvas.SetTop(ellipse, param.Y - param.R);
+
+                    ellipse.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    ellipse.StrokeThickness = 15;
+                    ellipse.Width = ellipse.Height = param.R * 2;
+                    ellipse.Opacity = 1;
+
+                    board.Children.Add(ellipse);
+                } 
 
                 //finalize
                 tempSmartDraw.Clear();
