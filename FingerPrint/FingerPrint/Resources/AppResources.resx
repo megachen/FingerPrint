@@ -164,4 +164,10 @@
   <data name="FO_save" xml:space="preserve">
     <value>保存</value>
   </data>
+  <data name="DT_polygon" xml:space="preserve">
+    <value>多边形</value>
+  </data>
+  <data name="DT_rectangle" xml:space="preserve">
+    <value>矩形</value>
+  </data>
 </root>

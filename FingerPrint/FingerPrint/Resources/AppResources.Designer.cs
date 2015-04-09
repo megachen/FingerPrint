@@ -115,6 +115,24 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
+        ///   查找类似 多边形 的本地化字符串。
+        /// </summary>
+        public static string DT_polygon {
+            get {
+                return ResourceManager.GetString("DT_polygon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 矩形 的本地化字符串。
+        /// </summary>
+        public static string DT_rectangle {
+            get {
+                return ResourceManager.GetString("DT_rectangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 智能 的本地化字符串。
         /// </summary>
         public static string DT_smart {

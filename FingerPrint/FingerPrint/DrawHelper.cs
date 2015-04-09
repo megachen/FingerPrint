@@ -17,6 +17,8 @@ namespace FingerPrint
         Circle,
         Free,
         Smart,
+        Rectangle,
+        Polygon,
     };
 
     public struct ParaCircle
@@ -30,6 +32,7 @@ namespace FingerPrint
         private Point pt_begin, pt_last;
         private Drawstate state;
         private UIElement tempDraw;
+        Color color_foreground, color_background, color_fill;
         //for smart recognizaion
         private List<UIElement> tempSmartDraw;
         private List<double> angles;
@@ -37,6 +40,8 @@ namespace FingerPrint
         private List<Point> points;
         private double fardist, ang_begin, ang_sum;
         private Point vect_last, pt_collectlast;
+
+        private Dictionary<string, Color> colorDict;
 
         DrawHelper() { }
 
@@ -48,6 +53,16 @@ namespace FingerPrint
             points = new List<Point>();
             board = input;
             Clearboard();
+
+            colorDict = new Dictionary<string, Color>();
+            colorDict["Bk"] = Colors.Black;
+            colorDict["Wh"] = Colors.White;
+            colorDict["Rd"] = Colors.Red;
+            colorDict["Bl"] = Color.FromArgb(255, 30, 90, 240);
+            colorDict["Ye"] = Colors.Yellow;
+            colorDict["Gr"] = Colors.Green;
+            color_foreground = Colors.White;
+            color_fill = Color.FromArgb(0,0,0,0);
         }
 
         public void Clearboard()
@@ -71,6 +86,22 @@ namespace FingerPrint
             state = newstate;
         }
 
+        public void ChangeColor(string type, string color)
+        {
+            switch (type)
+            {
+                case "Frn":
+                    color_foreground = colorDict[color];
+                    break;
+                case "Brd":
+                    break;
+                case "Fill":
+                    color_fill = colorDict[color];
+                    break;
+                default: break;
+            }
+        }
+
         public void Pressdown(Point input)
         {
             pt_last = pt_begin = input;
@@ -90,8 +121,8 @@ namespace FingerPrint
                     line.Y1 = pt_begin.Y;
                     line.X2 = input.X;
                     line.Y2 = input.Y;
-
-                    line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    
+                    line.Stroke = new SolidColorBrush(color_foreground);
                     line.StrokeStartLineCap = PenLineCap.Round;
                     line.StrokeEndLineCap = PenLineCap.Round;
                     line.StrokeThickness = 15;
@@ -110,7 +141,8 @@ namespace FingerPrint
                     Canvas.SetLeft(ellipse, (pt_begin.X + input.X) / 2.0 - radius);
                     Canvas.SetTop(ellipse, (pt_begin.Y + input.Y) / 2.0 - radius);
 
-                    ellipse.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    ellipse.Stroke = new SolidColorBrush(color_foreground);
+                    ellipse.Fill = new SolidColorBrush(color_fill);
                     ellipse.StrokeThickness = 15;
                     ellipse.Width = ellipse.Height = radius * 2;
                     ellipse.Opacity = 1;
@@ -118,13 +150,33 @@ namespace FingerPrint
                     board.Children.Add(ellipse);
                     tempDraw = ellipse;
                     break;
+                case Drawstate.Rectangle:
+                    if (tempDraw != null)
+                    {
+                        board.Children.Remove(tempDraw);
+                    }
+                    Rectangle rect = new Rectangle();
+                    rect.Width = Math.Abs(input.X - pt_begin.X);
+                    rect.Height = Math.Abs(input.Y - pt_begin.Y);
+                    Canvas.SetLeft(rect, input.X < pt_begin.X ? input.X : pt_begin.X);
+                    Canvas.SetTop(rect, input.Y < pt_begin.Y ? input.Y : pt_begin.Y);
+
+                    rect.Stroke = new SolidColorBrush(color_foreground);
+                    rect.Fill = new SolidColorBrush(color_fill);
+                    rect.StrokeThickness = 15;
+
+                    board.Children.Add(rect);
+                    tempDraw = rect;
+                    break;
+                case Drawstate.Polygon:
+                    break;
                 case Drawstate.Free:
                     line.X1 = pt_last.X;
                     line.Y1 = pt_last.Y;
                     line.X2 = input.X;
                     line.Y2 = input.Y;
 
-                    line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    line.Stroke = new SolidColorBrush(color_foreground);
                     line.StrokeStartLineCap = PenLineCap.Round;
                     line.StrokeEndLineCap = PenLineCap.Round;
                     line.StrokeThickness = 15;
@@ -142,7 +194,7 @@ namespace FingerPrint
                     line.X2 = input.X;
                     line.Y2 = input.Y;
 
-                    line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    line.Stroke = new SolidColorBrush(color_foreground);
                     line.StrokeStartLineCap = PenLineCap.Round;
                     line.StrokeEndLineCap = PenLineCap.Round;
                     line.StrokeThickness = 15;
@@ -211,7 +263,7 @@ namespace FingerPrint
                     line.X2 = input.X;
                     line.Y2 = input.Y;
 
-                    line.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    line.Stroke = new SolidColorBrush(color_foreground);
                     line.StrokeStartLineCap = PenLineCap.Round;
                     line.StrokeEndLineCap = PenLineCap.Round;
                     line.StrokeThickness = 15;
@@ -238,7 +290,8 @@ namespace FingerPrint
                     Canvas.SetLeft(ellipse, param.X - param.R);
                     Canvas.SetTop(ellipse, param.Y - param.R);
 
-                    ellipse.Stroke = new SolidColorBrush(Color.FromArgb(255, 41, 159, 227));
+                    ellipse.Stroke = new SolidColorBrush(color_foreground);
+                    ellipse.Fill = new SolidColorBrush(color_fill);
                     ellipse.StrokeThickness = 15;
                     ellipse.Width = ellipse.Height = param.R * 2;
                     ellipse.Opacity = 1;
