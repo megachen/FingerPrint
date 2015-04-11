@@ -186,7 +186,7 @@ namespace FingerPrint
         private void OnClkColorChange(object sender, RoutedEventArgs e)
         {
             colorSelectionState = (sender as Button).Content.ToString();
-            MenuClose();
+            menuMainSubAnime.Begin();
             menuColorOpenAnime.Begin();
         }
 
@@ -196,7 +196,7 @@ namespace FingerPrint
 
             colorSelectionState = "";
             menuColorCloseAnime.Begin();
-            MenuOpen();
+            menuSubMainAnime.Begin();
         }
     }
 }

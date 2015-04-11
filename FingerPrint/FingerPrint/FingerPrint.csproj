@@ -141,6 +141,7 @@
     <Content Include="Assets\Icons\close.png" />
     <Content Include="Assets\Icons\delete.png" />
     <Content Include="Assets\Icons\download.png" />
+    <Content Include="Assets\Icons\ellipse.fw.png" />
     <Content Include="Assets\Icons\edit.png" />
     <Content Include="Assets\Icons\favs.addto.png" />
     <Content Include="Assets\Icons\favs.png" />
@@ -153,16 +154,24 @@
     <Content Include="Assets\Icons\feature.settings.png" />
     <Content Include="Assets\Icons\feature.video.png" />
     <Content Include="Assets\Icons\folder.png" />
+    <Content Include="Assets\Icons\free.fw.png" />
     <Content Include="Assets\Icons\like.png" />
+    <Content Include="Assets\Icons\line.fw.png" />
     <Content Include="Assets\Icons\microphone.png" />
     <Content Include="Assets\Icons\minus.png" />
     <Content Include="Assets\Icons\new.png" />
     <Content Include="Assets\Icons\next.png" />
     <Content Include="Assets\Icons\overflowdots.png" />
+    <Content Include="Assets\Icons\panel_inner.fw.png" />
+    <Content Include="Assets\Icons\panel_middle.fw.png" />
+    <Content Include="Assets\Icons\panel_outer.fw.png" />
+    <Content Include="Assets\Icons\path.fw.png" />
     <Content Include="Assets\Icons\questionmark.png" />
+    <Content Include="Assets\Icons\rect.fw.png" />
     <Content Include="Assets\Icons\refresh.png" />
     <Content Include="Assets\Icons\save.png" />
     <Content Include="Assets\Icons\share.png" />
+    <Content Include="Assets\Icons\smart.fw.png" />
     <Content Include="Assets\Icons\stop.png" />
     <Content Include="Assets\Icons\sync.png" />
     <Content Include="Assets\Icons\transport.ff.png" />
@@ -191,6 +200,7 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\MN_line.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
