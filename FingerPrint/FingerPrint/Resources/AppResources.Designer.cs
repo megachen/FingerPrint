@@ -61,34 +61,7 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
-        ///   查找类似 添加 的本地化字符串。
-        /// </summary>
-        public static string AppBarButtonText {
-            get {
-                return ResourceManager.GetString("AppBarButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 菜单项 的本地化字符串。
-        /// </summary>
-        public static string AppBarMenuItemText {
-            get {
-                return ResourceManager.GetString("AppBarMenuItemText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 我的应用程序 的本地化字符串。
-        /// </summary>
-        public static string ApplicationTitle {
-            get {
-                return ResourceManager.GetString("ApplicationTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 圆 的本地化字符串。
+        ///   查找类似 圆型 的本地化字符串。
         /// </summary>
         public static string DT_circle {
             get {
@@ -97,7 +70,7 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
-        ///   查找类似 自由 的本地化字符串。
+        ///   查找类似 自由绘制 的本地化字符串。
         /// </summary>
         public static string DT_free {
             get {
@@ -133,7 +106,7 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
-        ///   查找类似 智能 的本地化字符串。
+        ///   查找类似 智能识别模式 的本地化字符串。
         /// </summary>
         public static string DT_smart {
             get {
@@ -160,7 +133,7 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
-        ///   查找类似 调整 的本地化字符串。
+        ///   查找类似 调整和缩放 的本地化字符串。
         /// </summary>
         public static string FO_modify {
             get {
@@ -196,6 +169,15 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
+        ///   查找类似 菜单 的本地化字符串。
+        /// </summary>
+        public static string MN_menu {
+            get {
+                return ResourceManager.GetString("MN_menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 LeftToRight 的本地化字符串。
         /// </summary>
         public static string ResourceFlowDirection {
@@ -210,6 +192,15 @@ namespace FingerPrint.Resources {
         public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 已保存！ 的本地化字符串。
+        /// </summary>
+        public static string TP_saved {
+            get {
+                return ResourceManager.GetString("TP_saved", resourceCulture);
             }
         }
     }

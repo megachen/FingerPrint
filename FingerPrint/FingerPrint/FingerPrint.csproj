@@ -159,6 +159,7 @@
     <Content Include="Assets\Icons\line.fw.png" />
     <Content Include="Assets\Icons\microphone.png" />
     <Content Include="Assets\Icons\minus.png" />
+    <Content Include="Assets\Icons\modify.fw.png" />
     <Content Include="Assets\Icons\new.png" />
     <Content Include="Assets\Icons\next.png" />
     <Content Include="Assets\Icons\overflowdots.png" />
@@ -166,6 +167,7 @@
     <Content Include="Assets\Icons\panel_middle.fw.png" />
     <Content Include="Assets\Icons\panel_outer.fw.png" />
     <Content Include="Assets\Icons\path.fw.png" />
+    <Content Include="Assets\Icons\polygon.fw.png" />
     <Content Include="Assets\Icons\questionmark.png" />
     <Content Include="Assets\Icons\rect.fw.png" />
     <Content Include="Assets\Icons\refresh.png" />
@@ -208,6 +210,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShakeGestures\ShakeGesturesCS.csproj">
+      <Project>{5fc44183-2b47-4eea-b653-d1a6abea3b24}</Project>
+      <Name>ShakeGesturesCS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

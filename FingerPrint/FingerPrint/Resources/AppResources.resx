@@ -125,26 +125,17 @@
     <value>zh-CN</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>我的应用程序</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>添加</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>菜单项</value>
-  </data>
   <data name="DT_circle" xml:space="preserve">
-    <value>圆</value>
+    <value>圆型</value>
   </data>
   <data name="DT_free" xml:space="preserve">
-    <value>自由</value>
+    <value>自由绘制</value>
   </data>
   <data name="DT_line" xml:space="preserve">
     <value>直线</value>
   </data>
   <data name="DT_smart" xml:space="preserve">
-    <value>智能</value>
+    <value>智能识别模式</value>
   </data>
   <data name="FO_clear" xml:space="preserve">
     <value>清除</value>
@@ -153,7 +144,7 @@
     <value>放弃</value>
   </data>
   <data name="FO_modify" xml:space="preserve">
-    <value>调整</value>
+    <value>调整和缩放</value>
   </data>
   <data name="FO_read" xml:space="preserve">
     <value>读取</value>
@@ -169,5 +160,11 @@
   </data>
   <data name="DT_rectangle" xml:space="preserve">
     <value>矩形</value>
+  </data>
+  <data name="MN_menu" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="TP_saved" xml:space="preserve">
+    <value>已保存！</value>
   </data>
 </root>

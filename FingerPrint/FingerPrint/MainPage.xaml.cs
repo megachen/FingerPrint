@@ -18,6 +18,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework.Media;
 using FingerPrint.Resources;
+using ShakeGestures;
 
 namespace FingerPrint
 {
@@ -30,6 +31,12 @@ namespace FingerPrint
         // 构造函数
         public MainPage()
         {
+            ShakeGesturesHelper.Instance.ShakeGesture +=
+                new EventHandler<ShakeGestureEventArgs>(Instance_ShakeGesture);
+            ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
+            ShakeGesturesHelper.Instance.Active = true;
+
+
             InitializeComponent();
 
             // 用于本地化 ApplicationBar 的示例代码
@@ -38,6 +45,15 @@ namespace FingerPrint
             draw = new DrawHelper(cnv_paint);
             menuState = false;
             btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
+        }
+
+        void Instance_ShakeGesture(object sender, ShakeGestureEventArgs e)
+        {
+            // Use BeginInvoke to write to the UI thread.
+            LayoutRoot.Dispatcher.BeginInvoke(() =>
+            {
+                Showtips("Shake");
+            });
         }
 
         private void OnPressed(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -127,7 +143,7 @@ namespace FingerPrint
         private void MenuOpen()
         {
             menuState = true;
-            Showtips("Menu");
+            Showtips(AppResources.MN_menu);
             menuOpenAnime.Begin();
         }
 
@@ -152,7 +168,7 @@ namespace FingerPrint
             ms.Seek(0, SeekOrigin.Begin);
 
             ml.SavePicture("FP" + DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString() + ".jpg", ms);
-            Showtips("Saved!");
+            Showtips(AppResources.TP_saved);
         }
 
         private void OnClkColorChange(object sender, RoutedEventArgs e)

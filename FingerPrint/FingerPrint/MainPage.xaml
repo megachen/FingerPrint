@@ -1118,10 +1118,10 @@
                         <Image Width="60" Height="60" Source="/Assets/Icons/feature.settings.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_clear" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
-                        <Image Width="40" Height="40" Source="/Assets/Icons/delete.png" Stretch="Fill"/>
+                        <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_modify" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
-                        <Image Width="40" Height="40" Source="/Assets/Icons/edit.png" Stretch="Fill"/>
+                        <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_save" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/save.png" Stretch="Fill"/>
@@ -1146,7 +1146,7 @@
                         <Image Width="40" Height="40" Source="/Assets/Icons/ellipse.fw.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_polygon" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
-                        <Image Width="40" Height="40" Source="/Assets/Icons/path.fw.png" Stretch="Fill"/>
+                        <Image Width="40" Height="40" Source="/Assets/Icons/polygon.fw.png" Stretch="Fill"/>
                     </Button>
 
                     <Button x:Name="btn_color_black" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>
