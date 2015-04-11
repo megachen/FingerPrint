@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Microsoft.Devices;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework.Media;
@@ -28,7 +29,6 @@ namespace FingerPrint
         private bool menuState;
         private string colorSelectionState;
 
-        // 构造函数
         public MainPage()
         {
             ShakeGesturesHelper.Instance.ShakeGesture +=
@@ -36,11 +36,7 @@ namespace FingerPrint
             ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
             ShakeGesturesHelper.Instance.Active = true;
 
-
             InitializeComponent();
-
-            // 用于本地化 ApplicationBar 的示例代码
-            //BuildLocalizedApplicationBar();
 
             draw = new DrawHelper(cnv_paint);
             menuState = false;
@@ -49,9 +45,9 @@ namespace FingerPrint
 
         void Instance_ShakeGesture(object sender, ShakeGestureEventArgs e)
         {
-            // Use BeginInvoke to write to the UI thread.
             LayoutRoot.Dispatcher.BeginInvoke(() =>
             {
+                VibrateController.Default.Start(TimeSpan.FromMilliseconds(300));
                 Showtips("Shake");
             });
         }
@@ -185,6 +181,20 @@ namespace FingerPrint
             colorSelectionState = "";
             menuColorCloseAnime.Begin();
             menuSubMainAnime.Begin();
+        }
+
+        private void OnClkClosure(object sender, RoutedEventArgs e)
+        {
+            if(draw.closureState)
+            {
+                draw.closureState = false;
+                btn_closure.Background = new SolidColorBrush(Colors.Transparent);
+            }
+            else
+            {
+                draw.closureState = true;
+                btn_closure.Background = new SolidColorBrush(Colors.Red);
+            }
         }
     }
 }

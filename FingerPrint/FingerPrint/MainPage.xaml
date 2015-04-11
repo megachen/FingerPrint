@@ -1129,7 +1129,9 @@
                     <Button x:Name="btn_front" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_foreground}" Content="S"/>
                     <Button x:Name="btn_board" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_background}" Content="B"/>
                     <Button x:Name="btn_fill" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_fill}" Content="F"/>
-                    <Button x:Name="btn_closure" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" IsEnabled="False" Template="{StaticResource tmp_MenuButton}" Content="Clo"/>
+                    <Button x:Name="btn_closure" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkClosure" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/closure.fw.png" Stretch="Fill"/>
+                    </Button>
                     <Button x:Name="btn_smart" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_smart_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/smart.fw.png" Stretch="Fill"/>
                     </Button>

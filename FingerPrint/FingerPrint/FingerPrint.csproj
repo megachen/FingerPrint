@@ -139,6 +139,7 @@
     <Content Include="Assets\Icons\cancel.png" />
     <Content Include="Assets\Icons\check.png" />
     <Content Include="Assets\Icons\close.png" />
+    <Content Include="Assets\Icons\closure.fw.png" />
     <Content Include="Assets\Icons\delete.png" />
     <Content Include="Assets\Icons\download.png" />
     <Content Include="Assets\Icons\ellipse.fw.png" />

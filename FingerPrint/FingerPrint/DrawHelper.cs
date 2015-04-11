@@ -45,11 +45,13 @@ namespace FingerPrint
         private Color m_clrfill;
         public Color color_fill { get { return m_clrfill; } set { m_clrfill = value; NotifyPropertyChanged("brush_fill"); } }
         public SolidColorBrush brush_fill { get { return new SolidColorBrush(color_fill); } }
+        public bool closureState;
 
         private Canvas board;
         private Point pt_begin, pt_last;
         private Drawstate state;
         private UIElement tempDraw;
+        private List<object> drawHistory;
         
         //for smart recognizaion
         private List<UIElement> tempSmartDraw;
@@ -66,6 +68,7 @@ namespace FingerPrint
         public DrawHelper(Canvas input)
         {
             tempSmartDraw = new List<UIElement>();
+            drawHistory = new List<object>();
             angles = new List<double>();
             length = new List<double>();
             points = new List<Point>();
@@ -83,6 +86,7 @@ namespace FingerPrint
             color_foreground = Colors.White;
             color_fill = Color.FromArgb(0,0,0,0);
 
+            closureState = false;
         }
 
         public void Clearboard()
@@ -323,6 +327,7 @@ namespace FingerPrint
                     line.Opacity = 1;
 
                     board.Children.Add(line);
+                    drawHistory.Add(line);
                 }
                 //test freedraw
                 else if (CalcVariance(angles) > 500)
@@ -350,7 +355,8 @@ namespace FingerPrint
                     ellipse.Opacity = 1;
 
                     board.Children.Add(ellipse);
-                } 
+                    drawHistory.Add(ellipse);
+                }
 
                 //finalize
                 tempSmartDraw.Clear();
@@ -360,6 +366,7 @@ namespace FingerPrint
                 fardist = ang_begin = ang_sum = 0.0;
                 //}
             }
+            else { drawHistory.Add(tempDraw); }
             pt_begin = new Point(0, 0);
             pt_last = new Point(0, 0);
             pt_collectlast = new Point(0, 0);
@@ -390,6 +397,11 @@ namespace FingerPrint
             pt_collectlast = new Point(0, 0);
             vect_last = new Point(0, 0);
             tempDraw = null;
+        }
+
+        public void Undo()
+        {
+
         }
 
         private double CalcDist(Point a, Point b)
