@@ -38,4 +38,7 @@
       </InProcessServer>
     </Extension>
   </Extensions>
+  <Capabilities>
+    <Capability Name="picturesLibrary" />
+  </Capabilities>
 </Package>

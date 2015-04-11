@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -26,13 +27,30 @@ namespace FingerPrint
         public double X, Y, R;
     };
 
-    public class DrawHelper
+    public class DrawHelper : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private Color m_clrfore;
+        public Color color_foreground { get { return m_clrfore; } set { m_clrfore = value; NotifyPropertyChanged("brush_foreground"); } }
+        public SolidColorBrush brush_foreground { get { return new SolidColorBrush(color_foreground); } }
+        private Color m_clrback;
+        public Color color_background { get { return m_clrback; } set { m_clrback = value; NotifyPropertyChanged("brush_background"); } }
+        public SolidColorBrush brush_background { get { return new SolidColorBrush(color_background); } }
+        private Color m_clrfill;
+        public Color color_fill { get { return m_clrfill; } set { m_clrfill = value; NotifyPropertyChanged("brush_fill"); } }
+        public SolidColorBrush brush_fill { get { return new SolidColorBrush(color_fill); } }
+
         private Canvas board;
         private Point pt_begin, pt_last;
         private Drawstate state;
         private UIElement tempDraw;
-        Color color_foreground, color_background, color_fill;
+        
         //for smart recognizaion
         private List<UIElement> tempSmartDraw;
         private List<double> angles;
@@ -61,8 +79,10 @@ namespace FingerPrint
             colorDict["Bl"] = Color.FromArgb(255, 30, 90, 240);
             colorDict["Ye"] = Colors.Yellow;
             colorDict["Gr"] = Colors.Green;
+            colorDict["Tr"] = Colors.Transparent;
             color_foreground = Colors.White;
             color_fill = Color.FromArgb(0,0,0,0);
+
         }
 
         public void Clearboard()
@@ -90,12 +110,14 @@ namespace FingerPrint
         {
             switch (type)
             {
-                case "Frn":
+                case "S":
                     color_foreground = colorDict[color];
                     break;
-                case "Brd":
+                case "B":
+                    color_background = colorDict[color];
+                    board.Background = new SolidColorBrush(colorDict[color]);
                     break;
-                case "Fill":
+                case "F":
                     color_fill = colorDict[color];
                     break;
                 default: break;
@@ -104,7 +126,34 @@ namespace FingerPrint
 
         public void Pressdown(Point input)
         {
-            pt_last = pt_begin = input;
+            if (state == Drawstate.Polygon)
+            {
+                if(pt_begin.X==0&&pt_begin.Y==0)
+                {
+                    pt_begin = pt_last = input;
+                }
+                else
+                {
+                    Line line = new Line();
+                    line.X1 = pt_last.X;
+                    line.Y1 = pt_last.Y;
+                    line.X2 = input.X;
+                    line.Y2 = input.Y;
+
+                    line.Stroke = new SolidColorBrush(color_foreground);
+                    line.StrokeStartLineCap = PenLineCap.Round;
+                    line.StrokeEndLineCap = PenLineCap.Round;
+                    line.StrokeThickness = 15;
+                    line.Opacity = 1;
+
+                    board.Children.Add(line);
+                    pt_last = input;
+                }
+            }
+            else
+            {
+                pt_last = pt_begin = input;
+            }
         }
 
         public void Move(Point input)
@@ -241,6 +290,10 @@ namespace FingerPrint
 
         public void Release(Point input)
         {
+            if(state==Drawstate.Polygon)
+            {
+                return;
+            }
             if(state==Drawstate.Smart)
             {
                 List<double> ang_stat = new List<double>(angles);
@@ -307,6 +360,31 @@ namespace FingerPrint
                 fardist = ang_begin = ang_sum = 0.0;
                 //}
             }
+            pt_begin = new Point(0, 0);
+            pt_last = new Point(0, 0);
+            pt_collectlast = new Point(0, 0);
+            vect_last = new Point(0, 0);
+            tempDraw = null;
+        }
+
+        public void DoubleTap(Point input)
+        {
+            if (state != Drawstate.Polygon) return;
+
+            Line line = new Line();
+            line.X1 = pt_last.X;
+            line.Y1 = pt_last.Y;
+            line.X2 = input.X;
+            line.Y2 = input.Y;
+
+            line.Stroke = new SolidColorBrush(color_foreground);
+            line.StrokeStartLineCap = PenLineCap.Round;
+            line.StrokeEndLineCap = PenLineCap.Round;
+            line.StrokeThickness = 15;
+            line.Opacity = 1;
+
+            board.Children.Add(line);
+
             pt_begin = new Point(0, 0);
             pt_last = new Point(0, 0);
             pt_collectlast = new Point(0, 0);

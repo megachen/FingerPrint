@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -8,10 +11,12 @@ using System.Windows.Navigation;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Xna.Framework.Media;
 using FingerPrint.Resources;
 
 namespace FingerPrint
@@ -32,44 +37,8 @@ namespace FingerPrint
 
             draw = new DrawHelper(cnv_paint);
             menuState = false;
+            btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
-
-        private void OnPageLoaded(object sender, RoutedEventArgs e)
-        {
-            //cnv_paint.MouseMove += new MouseEventHandler(OnMoving);
-            //cnv_paint.MouseLeftButtonUp += new MouseButtonEventHandler(OnReleased);
-            //cnv_paint.MouseLeftButtonDown += new MouseButtonEventHandler(OnPressed);
-        }
-
-        //用于生成本地化 ApplicationBar 的示例代码
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // 将页面的 ApplicationBar 设置为 ApplicationBar 的新实例。
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // 创建新按钮并将文本值设置为 AppResources 中的本地化字符串。
-        //    ApplicationBarIconButton appBtn_line = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
-        //    appBtn_line.Text = AppResources.DT_line;
-        //    appBtn_line.Click += appBtn_line_Click;
-        //    ApplicationBarIconButton appBtn_circle = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
-        //    appBtn_circle.Text = AppResources.DT_circle;
-        //    appBtn_circle.Click += appBtn_circle_Click;
-        //    ApplicationBarIconButton appBtn_free = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
-        //    appBtn_free.Text = AppResources.DT_free;
-        //    appBtn_free.Click += appBtn_free_Click;
-        //    ApplicationBarIconButton appBtn_smart = new ApplicationBarIconButton(new Uri("/Assets/Icons/edit.png", UriKind.Relative));
-        //    appBtn_smart.Text = AppResources.DT_smart;
-        //    appBtn_smart.Click += appBtn_smart_Click;
-        //    ApplicationBar.Buttons.Add(appBtn_line);
-        //    ApplicationBar.Buttons.Add(appBtn_circle);
-        //    ApplicationBar.Buttons.Add(appBtn_free);
-        //    ApplicationBar.Buttons.Add(appBtn_smart);
-
-        //    // 使用 AppResources 中的本地化字符串创建新菜单项。
-        //    ApplicationBarMenuItem appMenu_clear = new ApplicationBarMenuItem(AppResources.FO_clear);
-        //    appMenu_clear.Click += appMenu_clear_Click;
-        //    ApplicationBar.MenuItems.Add(appMenu_clear);
-        //}
 
         private void OnPressed(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -86,17 +55,12 @@ namespace FingerPrint
         {
             draw.Release(e.GetPosition(cnv_paint));
             (sender as Canvas).ReleaseMouseCapture();
-            //disp.Children.Remove(last_el);
-            //stat -= last_ang;
-            //cnv_paint.Children.Remove(last_line);
-            //msg.Text = last_ang.ToString() + "           " + stat.ToString();
-            //draw = false;
         }
 
         private void OnDoubleTap(object sender, GestureEventArgs e)
         {
-            //draw.Release(e.GetPosition(cnv_paint));
-            //(sender as Canvas).ReleaseMouseCapture();
+            draw.DoubleTap(e.GetPosition(cnv_paint));
+            (sender as Canvas).ReleaseMouseCapture();
         }
 
         void appMenu_clear_Click(object sender, RoutedEventArgs e)
@@ -180,7 +144,15 @@ namespace FingerPrint
 
         private void OnCLkSave(object sender, RoutedEventArgs e)
         {
+            WriteableBitmap _bitmap = new WriteableBitmap(cnv_paint, null);
+            MediaLibrary ml = new MediaLibrary();
 
+            MemoryStream ms=new MemoryStream();
+            _bitmap.SaveJpeg(ms,_bitmap.PixelWidth,_bitmap.PixelHeight,0,80);
+            ms.Seek(0, SeekOrigin.Begin);
+
+            ml.SavePicture("FP" + DateTime.Now.ToShortDateString() + DateTime.Now.ToShortTimeString() + ".jpg", ms);
+            Showtips("Saved!");
         }
 
         private void OnClkColorChange(object sender, RoutedEventArgs e)
