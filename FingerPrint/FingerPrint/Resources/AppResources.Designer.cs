@@ -169,6 +169,15 @@ namespace FingerPrint.Resources {
         }
         
         /// <summary>
+        ///   查找类似 撤销 的本地化字符串。
+        /// </summary>
+        public static string FO_undo {
+            get {
+                return ResourceManager.GetString("FO_undo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 菜单 的本地化字符串。
         /// </summary>
         public static string MN_menu {

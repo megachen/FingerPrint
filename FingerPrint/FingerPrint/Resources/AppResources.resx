@@ -167,4 +167,7 @@
   <data name="TP_saved" xml:space="preserve">
     <value>已保存！</value>
   </data>
+  <data name="FO_undo" xml:space="preserve">
+    <value>撤销</value>
+  </data>
 </root>

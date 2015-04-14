@@ -33,12 +33,12 @@ namespace FingerPrint
         {
             ShakeGesturesHelper.Instance.ShakeGesture +=
                 new EventHandler<ShakeGestureEventArgs>(Instance_ShakeGesture);
-            ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 2;
+            ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 4;
             ShakeGesturesHelper.Instance.Active = true;
 
             InitializeComponent();
 
-            draw = new DrawHelper(cnv_paint);
+            draw = new DrawHelper(cnv_paint, cnv_preview);
             menuState = false;
             btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
@@ -48,7 +48,8 @@ namespace FingerPrint
             LayoutRoot.Dispatcher.BeginInvoke(() =>
             {
                 VibrateController.Default.Start(TimeSpan.FromMilliseconds(300));
-                Showtips("Shake");
+                Showtips(AppResources.FO_undo);
+                draw.Undo();
             });
         }
 

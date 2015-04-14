@@ -47,11 +47,12 @@ namespace FingerPrint
         public SolidColorBrush brush_fill { get { return new SolidColorBrush(color_fill); } }
         public bool closureState;
 
-        private Canvas board;
+        private Canvas board, preview;
         private Point pt_begin, pt_last;
         private Drawstate state;
         private UIElement tempDraw;
         private List<object> drawHistory;
+        private PointCollection inputCollection;
         
         //for smart recognizaion
         private List<UIElement> tempSmartDraw;
@@ -65,14 +66,16 @@ namespace FingerPrint
 
         DrawHelper() { }
 
-        public DrawHelper(Canvas input)
+        public DrawHelper(Canvas input, Canvas pv)
         {
             tempSmartDraw = new List<UIElement>();
             drawHistory = new List<object>();
             angles = new List<double>();
             length = new List<double>();
             points = new List<Point>();
+            inputCollection = new PointCollection();
             board = input;
+            preview = pv;
             Clearboard();
 
             colorDict = new Dictionary<string, Color>();
@@ -84,13 +87,15 @@ namespace FingerPrint
             colorDict["Gr"] = Colors.Green;
             colorDict["Tr"] = Colors.Transparent;
             color_foreground = Colors.White;
-            color_fill = Color.FromArgb(0,0,0,0);
+            color_background = Colors.Black;
+            color_fill = Colors.Transparent;
 
             closureState = false;
         }
 
         public void Clearboard()
         {
+            preview.Children.Clear();
             board.Children.Clear();
             state = Drawstate.Idle;
             pt_begin = new Point(0, 0);
@@ -99,6 +104,7 @@ namespace FingerPrint
             pt_collectlast = new Point(0, 0);
             tempDraw = null;
             tempSmartDraw.Clear();
+            inputCollection = new PointCollection();
             angles.Clear();
             length.Clear();
             points.Clear();
@@ -108,6 +114,13 @@ namespace FingerPrint
         public void Changemode(Drawstate newstate)
         {
             state = newstate;
+
+            pt_begin = new Point(0, 0);
+            pt_last = new Point(0, 0);
+            pt_collectlast = new Point(0, 0);
+            vect_last = new Point(0, 0);
+            tempDraw = null;
+            inputCollection = new PointCollection();
         }
 
         public void ChangeColor(string type, string color)
@@ -130,33 +143,35 @@ namespace FingerPrint
 
         public void Pressdown(Point input)
         {
-            if (state == Drawstate.Polygon)
+            switch (state)
             {
-                if(pt_begin.X==0&&pt_begin.Y==0)
-                {
-                    pt_begin = pt_last = input;
-                }
-                else
-                {
-                    Line line = new Line();
-                    line.X1 = pt_last.X;
-                    line.Y1 = pt_last.Y;
-                    line.X2 = input.X;
-                    line.Y2 = input.Y;
+                case Drawstate.Polygon:
+                    if (pt_begin.X == 0 && pt_begin.Y == 0) pt_begin = pt_last = input;
+                    else
+                    {
+                        Line line = new Line();
+                        line.X1 = pt_last.X;
+                        line.Y1 = pt_last.Y;
+                        line.X2 = input.X;
+                        line.Y2 = input.Y;
 
-                    line.Stroke = new SolidColorBrush(color_foreground);
-                    line.StrokeStartLineCap = PenLineCap.Round;
-                    line.StrokeEndLineCap = PenLineCap.Round;
-                    line.StrokeThickness = 15;
-                    line.Opacity = 1;
+                        line.Stroke = new SolidColorBrush(color_foreground);
+                        line.StrokeStartLineCap = PenLineCap.Round;
+                        line.StrokeEndLineCap = PenLineCap.Round;
+                        line.StrokeThickness = 15;
+                        line.Opacity = 1;
 
-                    board.Children.Add(line);
-                    pt_last = input;
-                }
-            }
-            else
-            {
-                pt_last = pt_begin = input;
+                        preview.Children.Add(line);
+                        pt_last = input;
+                    }
+                    inputCollection.Add(input);
+                    break;
+                case Drawstate.Free:
+                case Drawstate.Smart:
+                    inputCollection.Add(input);
+                    pt_last = pt_begin = input; break;
+                default:
+                    pt_last = pt_begin = input; break;
             }
         }
 
@@ -195,7 +210,7 @@ namespace FingerPrint
                     Canvas.SetTop(ellipse, (pt_begin.Y + input.Y) / 2.0 - radius);
 
                     ellipse.Stroke = new SolidColorBrush(color_foreground);
-                    ellipse.Fill = new SolidColorBrush(color_fill);
+                    if(closureState) ellipse.Fill = new SolidColorBrush(color_fill);
                     ellipse.StrokeThickness = 15;
                     ellipse.Width = ellipse.Height = radius * 2;
                     ellipse.Opacity = 1;
@@ -215,7 +230,7 @@ namespace FingerPrint
                     Canvas.SetTop(rect, input.Y < pt_begin.Y ? input.Y : pt_begin.Y);
 
                     rect.Stroke = new SolidColorBrush(color_foreground);
-                    rect.Fill = new SolidColorBrush(color_fill);
+                    if (closureState) rect.Fill = new SolidColorBrush(color_fill);
                     rect.StrokeThickness = 15;
 
                     board.Children.Add(rect);
@@ -235,8 +250,9 @@ namespace FingerPrint
                     line.StrokeThickness = 15;
                     line.Opacity = 1;
 
-                    board.Children.Add(line);
+                    preview.Children.Add(line);
                     pt_last = input;
+                    inputCollection.Add(input);
                     break;
                 case Drawstate.Smart:
                     double distance = CalcDist(pt_collectlast, input);
@@ -253,7 +269,7 @@ namespace FingerPrint
                     line.StrokeThickness = 15;
                     line.Opacity = 1;
 
-                    board.Children.Add(line);
+                    preview.Children.Add(line);
                     tempSmartDraw.Add(line);
 
                     //collect
@@ -287,6 +303,7 @@ namespace FingerPrint
 
                     //finalize
                     pt_last = input;
+                    inputCollection.Add(input);
                     break;
                 default: break;
             }
@@ -294,114 +311,179 @@ namespace FingerPrint
 
         public void Release(Point input)
         {
-            if(state==Drawstate.Polygon)
+            Path poly = new Path();
+            PathGeometry geoPoly = new PathGeometry();
+            geoPoly.Figures = new PathFigureCollection();
+            PolyLineSegment seg = new PolyLineSegment();
+            PathFigure figPoly = new PathFigure();
+            switch (state)
             {
-                return;
-            }
-            if(state==Drawstate.Smart)
-            {
-                List<double> ang_stat = new List<double>(angles);
-                ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
-                double test_closure = CalcDist(pt_begin, input),
-                    ang_avg = Math.Abs(CalcAverage(ang_stat));
+                case Drawstate.Line:
+                case Drawstate.Circle:
+                case Drawstate.Rectangle:
+                    drawHistory.Add(tempDraw);
+                    break;
+                case Drawstate.Polygon:
+                    return;
+                case Drawstate.Free:
+                    preview.Children.Clear();
 
-                //test line
-                if (ang_avg < 6 && test_closure / fardist >0.9)
+                    figPoly.StartPoint = inputCollection[0];
+                    seg.Points = inputCollection;
+                    figPoly.Segments.Add(seg);
+                    geoPoly.Figures.Add(figPoly);
+
+                    poly.Data = geoPoly;
+                    poly.StrokeStartLineCap = poly.StrokeEndLineCap = PenLineCap.Round;
+                    poly.Stroke = new SolidColorBrush(color_foreground);
+                    poly.StrokeThickness = 15;
+                    poly.Opacity = 1;
+
+                    board.Children.Add(poly);
+                    drawHistory.Add(poly);
+                    break;
+                case Drawstate.Smart:
                 {
-                    //clear tempdraw
-                    foreach (UIElement i in tempSmartDraw)
+                    SmartAnalyze();
+
+                    List<double> ang_stat = new List<double>(angles);
+                    ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
+                    double test_closure = CalcDist(pt_begin, input),
+                        ang_avg = Math.Abs(CalcAverage(ang_stat));
+
+                    //test line
+                    if (ang_avg < 6 && test_closure / fardist >0.9)
                     {
-                        board.Children.Remove(i);
+                        //clear tempdraw
+                        preview.Children.Clear();
+
+                        //line
+                        Line line = new Line();
+                        line.X1 = pt_begin.X;
+                        line.Y1 = pt_begin.Y;
+                        line.X2 = input.X;
+                        line.Y2 = input.Y;
+
+                        line.Stroke = new SolidColorBrush(color_foreground);
+                        line.StrokeStartLineCap = PenLineCap.Round;
+                        line.StrokeEndLineCap = PenLineCap.Round;
+                        line.StrokeThickness = 15;
+                        line.Opacity = 1;
+
+                        board.Children.Add(line);
+                        drawHistory.Add(line);
                     }
-                    //line
-                    Line line = new Line();
-                    line.X1 = pt_begin.X;
-                    line.Y1 = pt_begin.Y;
-                    line.X2 = input.X;
-                    line.Y2 = input.Y;
-
-                    line.Stroke = new SolidColorBrush(color_foreground);
-                    line.StrokeStartLineCap = PenLineCap.Round;
-                    line.StrokeEndLineCap = PenLineCap.Round;
-                    line.StrokeThickness = 15;
-                    line.Opacity = 1;
-
-                    board.Children.Add(line);
-                    drawHistory.Add(line);
-                }
-                //test freedraw
-                else if (CalcVariance(angles) > 500)
-                {
-
-                }
-                else if(ang_avg > 3 && test_closure < fardist / 2)
-                {
-                    //clear tempdraw
-                    foreach (UIElement i in tempSmartDraw)
+                    //test freedraw
+                    else if (CalcVariance(angles) > 500)
                     {
-                        board.Children.Remove(i);
+                        preview.Children.Clear();
+
+                        figPoly.StartPoint = inputCollection[0];
+                        seg.Points = inputCollection;
+                        figPoly.Segments.Add(seg);
+                        geoPoly.Figures.Add(figPoly);
+
+                        poly.Data = geoPoly;
+                        poly.StrokeStartLineCap = poly.StrokeEndLineCap = PenLineCap.Round;
+                        poly.Stroke = new SolidColorBrush(color_foreground);
+                        poly.StrokeThickness = 15;
+                        poly.Opacity = 1;
+
+                        board.Children.Add(poly);
+                        drawHistory.Add(poly);
+                        break;
                     }
-                    //circle
-                    ParaCircle param = CalcCircleFitting();
+                    else if(ang_avg > 3 && test_closure < fardist / 2)
+                    {
+                        //clear tempdraw
+                        preview.Children.Clear();
 
-                    Ellipse ellipse = new Ellipse();
-                    Canvas.SetLeft(ellipse, param.X - param.R);
-                    Canvas.SetTop(ellipse, param.Y - param.R);
+                        //circle
+                        ParaCircle param = CalcCircleFitting();
 
-                    ellipse.Stroke = new SolidColorBrush(color_foreground);
-                    ellipse.Fill = new SolidColorBrush(color_fill);
-                    ellipse.StrokeThickness = 15;
-                    ellipse.Width = ellipse.Height = param.R * 2;
-                    ellipse.Opacity = 1;
+                        Ellipse ellipse = new Ellipse();
+                        Canvas.SetLeft(ellipse, param.X - param.R);
+                        Canvas.SetTop(ellipse, param.Y - param.R);
 
-                    board.Children.Add(ellipse);
-                    drawHistory.Add(ellipse);
+                        ellipse.Stroke = new SolidColorBrush(color_foreground);
+                        if (closureState) ellipse.Fill = new SolidColorBrush(color_fill);
+                        ellipse.StrokeThickness = 15;
+                        ellipse.Width = ellipse.Height = param.R * 2;
+                        ellipse.Opacity = 1;
+
+                        board.Children.Add(ellipse);
+                        drawHistory.Add(ellipse);
+                    }
+
+                    //finalize
+                    tempSmartDraw.Clear();
+                    angles.Clear();
+                    length.Clear();
+                    points.Clear();
+                    fardist = ang_begin = ang_sum = 0.0;
+                    //}
+                    break;
                 }
-
-                //finalize
-                tempSmartDraw.Clear();
-                angles.Clear();
-                length.Clear();
-                points.Clear();
-                fardist = ang_begin = ang_sum = 0.0;
-                //}
+                default: drawHistory.Add(tempDraw); break;
             }
-            else { drawHistory.Add(tempDraw); }
             pt_begin = new Point(0, 0);
             pt_last = new Point(0, 0);
             pt_collectlast = new Point(0, 0);
             vect_last = new Point(0, 0);
             tempDraw = null;
+            inputCollection = new PointCollection();
         }
 
         public void DoubleTap(Point input)
         {
             if (state != Drawstate.Polygon) return;
 
-            Line line = new Line();
-            line.X1 = pt_last.X;
-            line.Y1 = pt_last.Y;
-            line.X2 = input.X;
-            line.Y2 = input.Y;
+            //inputCollection.Add(input);
+            preview.Children.Clear();
 
-            line.Stroke = new SolidColorBrush(color_foreground);
-            line.StrokeStartLineCap = PenLineCap.Round;
-            line.StrokeEndLineCap = PenLineCap.Round;
-            line.StrokeThickness = 15;
-            line.Opacity = 1;
+            Path poly = new Path();
+            PathGeometry geoPoly = new PathGeometry();
+            geoPoly.Figures = new PathFigureCollection();
+            PathFigure figPoly = new PathFigure();
+            figPoly.StartPoint = inputCollection[0];
 
-            board.Children.Add(line);
+            if (CalcDist(inputCollection.First(), inputCollection.Last()) < 50)
+            {
+                inputCollection.RemoveAt(inputCollection.Count - 1);
+                inputCollection.RemoveAt(inputCollection.Count - 1);
+                figPoly.IsClosed = true;
+                figPoly.IsFilled = true;
+                geoPoly.FillRule = FillRule.Nonzero;
+                poly.Fill = new SolidColorBrush(color_fill);
+            }
+
+            PolyLineSegment seg = new PolyLineSegment();
+            seg.Points = inputCollection;
+            figPoly.Segments.Add(seg);
+            geoPoly.Figures.Add(figPoly);
+
+            poly.Data = geoPoly;
+            poly.StrokeStartLineCap = poly.StrokeEndLineCap = PenLineCap.Round;
+            poly.Stroke = new SolidColorBrush(color_foreground);
+            poly.StrokeThickness = 15;
+            poly.Opacity = 1;
+
+            board.Children.Add(poly);
+            drawHistory.Add(poly);
 
             pt_begin = new Point(0, 0);
             pt_last = new Point(0, 0);
             pt_collectlast = new Point(0, 0);
             vect_last = new Point(0, 0);
             tempDraw = null;
+            inputCollection = new PointCollection();
         }
 
         public void Undo()
         {
-
+            if (drawHistory.Count < 1) return;
+            board.Children.Remove(drawHistory.Last() as UIElement);
+            drawHistory.RemoveAt(drawHistory.Count - 1);
         }
 
         private double CalcDist(Point a, Point b)
@@ -485,6 +567,11 @@ namespace FingerPrint
             ret.Y = B;
             ret.R = R;
             return ret;
+        }
+
+        private void SmartAnalyze()
+        {
+
         }
     }
 }
