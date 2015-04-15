@@ -47,35 +47,30 @@ namespace FingerPrint
         public SolidColorBrush brush_fill { get { return new SolidColorBrush(color_fill); } }
         public bool closureState;
 
-        private Canvas board, preview;
+        private Canvas board, preview, debug;
         private Point pt_begin, pt_last;
         private Drawstate state;
         private UIElement tempDraw;
         private List<object> drawHistory;
         private PointCollection inputCollection;
-        
-        //for smart recognizaion
-        private List<UIElement> tempSmartDraw;
-        private List<double> angles;
-        private List<double> length;
-        private List<Point> points;
-        private double fardist, ang_begin, ang_sum;
-        private Point vect_last, pt_collectlast;
 
         private Dictionary<string, Color> colorDict;
 
         DrawHelper() { }
 
-        public DrawHelper(Canvas input, Canvas pv)
+        public DrawHelper(Canvas input, Canvas pv, Canvas deb)
         {
             tempSmartDraw = new List<UIElement>();
             drawHistory = new List<object>();
             angles = new List<double>();
             length = new List<double>();
             points = new List<Point>();
+            directions = new List<Point>();
             inputCollection = new PointCollection();
             board = input;
             preview = pv;
+            debug = deb;
+            dispindex = 0;
             Clearboard();
 
             colorDict = new Dictionary<string, Color>();
@@ -168,7 +163,23 @@ namespace FingerPrint
                     break;
                 case Drawstate.Free:
                 case Drawstate.Smart:
+                    debug.Children.Clear();
+                    Line dline = new Line(); Line dline2 = new Line(); Line dline3 = new Line(); Line dline4 = new Line(); Line dline5 = new Line();
+                    dline.X1 = dline2.X1 = dline3.X1 = dline4.X1 = dline5.X1 = 0;
+                    dline.Y1 = debug.ActualHeight / 2;
+                    dline2.Y1 = 60; dline3.Y1 = 80; dline4.Y1 = 100; dline5.Y1 = 120;
+                    dline.X2 = dline2.X2 = dline3.X2 = dline4.X2 = dline5.X2 = debug.ActualWidth;
+                    dline.Y2 = debug.ActualHeight / 2;
+                    dline2.Y2 = 60; dline3.Y2 = 80; dline4.Y2 = 100; dline5.Y2 = 120;
+                    dline.Stroke = new SolidColorBrush(Color.FromArgb(255, 200, 200, 0));
+                    dline.StrokeThickness = dline2.StrokeThickness = dline3.StrokeThickness = dline4.StrokeThickness = dline5.StrokeThickness = 1;
+                    dline.Opacity = dline2.Opacity = dline3.Opacity = dline4.Opacity = dline5.Opacity = 1;
+                    dline2.Stroke = dline3.Stroke = dline4.Stroke = dline5.Stroke = new SolidColorBrush(Color.FromArgb(180, 200, 200, 0));
+                    debug.Children.Add(dline); debug.Children.Add(dline2); debug.Children.Add(dline3); debug.Children.Add(dline4); debug.Children.Add(dline5);
+                    dispindex = 0;
+
                     inputCollection.Add(input);
+                    points.Clear(); directions.Clear(); angles.Clear();
                     pt_last = pt_begin = input; break;
                 default:
                     pt_last = pt_begin = input; break;
@@ -255,8 +266,6 @@ namespace FingerPrint
                     inputCollection.Add(input);
                     break;
                 case Drawstate.Smart:
-                    double distance = CalcDist(pt_collectlast, input);
-                    
                     //draw
                     line.X1 = pt_last.X;
                     line.Y1 = pt_last.Y;
@@ -273,33 +282,7 @@ namespace FingerPrint
                     tempSmartDraw.Add(line);
 
                     //collect
-                    if (distance > 8)
-                    {
-                        Point vect_input = new Point(input.X - pt_collectlast.X, input.Y - pt_collectlast.Y);
-                        if (vect_input.X == 0.0 && vect_input.Y == 0.0) { pt_last = input; break; }
-                        if (!(vect_last.X == 0.0 && vect_last.Y == 0.0))
-                        {
-                            double ang = CalcAngle(vect_input, vect_last);
-                            if (double.IsNaN(ang)) { pt_last = input; break; }
-                            if (Math.Abs(ang) < 100.0)
-                            {
-                                ang_sum += ang;
-                                angles.Add(ang);
-                                length.Add(distance);
-                                points.Add(input);
-                            }
-                        }
-                        else
-                        {
-                            ang_begin = CalcAngle(new Point(0, 1), vect_input);
-                            points.Add(input);
-                        }
-                        double distance2 = CalcDist(pt_begin, input);
-                        if (distance2 > fardist) fardist = distance2;
-
-                        pt_collectlast = input;
-                        vect_last = vect_input;
-                    }
+                    SmartCollect(input);
 
                     //finalize
                     pt_last = input;
@@ -344,15 +327,55 @@ namespace FingerPrint
                     break;
                 case Drawstate.Smart:
                 {
-                    SmartAnalyze();
+                    //SmartAnalyze();
+                    if (angles.Count < 2) break;
 
                     List<double> ang_stat = new List<double>(angles);
                     ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
                     double test_closure = CalcDist(pt_begin, input),
                         ang_avg = Math.Abs(CalcAverage(ang_stat));
+                    List<int> outliers = CheckOutlier(ang_avg);
 
                     //test line
-                    if (ang_avg < 6 && test_closure / fardist >0.9)
+                    if (outliers.Count > 0)
+                    {
+                        //clear tempdraw
+                        preview.Children.Clear();
+
+                        //polyline
+                        PointCollection polypoint = new PointCollection();
+                        polypoint.Add(points.First());
+                        foreach (int i in outliers)
+                        {
+                            polypoint.Add(points[i + 2]);
+                        }
+                        polypoint.Add(points.Last());
+                        
+                        figPoly.StartPoint = polypoint[0];
+
+                        if (CalcDist(polypoint.First(), polypoint.Last()) < 50)
+                        {
+                            polypoint.RemoveAt(polypoint.Count - 1);
+                            figPoly.IsClosed = true;
+                            figPoly.IsFilled = true;
+                            geoPoly.FillRule = FillRule.Nonzero;
+                            if (closureState) poly.Fill = new SolidColorBrush(color_fill);
+                        }
+
+                        seg.Points = polypoint;
+                        figPoly.Segments.Add(seg);
+                        geoPoly.Figures.Add(figPoly);
+
+                        poly.Data = geoPoly;
+                        poly.StrokeStartLineCap = poly.StrokeEndLineCap = PenLineCap.Round;
+                        poly.Stroke = new SolidColorBrush(color_foreground);
+                        poly.StrokeThickness = 15;
+                        poly.Opacity = 1;
+
+                        board.Children.Add(poly);
+                        drawHistory.Add(poly);
+                    }
+                    else if (ang_avg < 6 && test_closure / fardist > 0.9)
                     {
                         //clear tempdraw
                         preview.Children.Clear();
@@ -393,7 +416,7 @@ namespace FingerPrint
                         drawHistory.Add(poly);
                         break;
                     }
-                    else if(ang_avg > 3 && test_closure < fardist / 2)
+                    else if (ang_avg > 3 && test_closure < fardist / 2)
                     {
                         //clear tempdraw
                         preview.Children.Clear();
@@ -454,7 +477,7 @@ namespace FingerPrint
                 figPoly.IsClosed = true;
                 figPoly.IsFilled = true;
                 geoPoly.FillRule = FillRule.Nonzero;
-                poly.Fill = new SolidColorBrush(color_fill);
+                if (closureState) poly.Fill = new SolidColorBrush(color_fill);
             }
 
             PolyLineSegment seg = new PolyLineSegment();
@@ -569,9 +592,84 @@ namespace FingerPrint
             return ret;
         }
 
+
+        //for smart recognizaion
+        private int dispindex;
+        private List<UIElement> tempSmartDraw;
+        private List<double> length;
+        private List<Point> points, directions;
+        private List<double> angles;
+        private double fardist, ang_begin, ang_sum;
+        private Point vect_last, pt_collectlast;
+
+        private void SmartCollect(Point input)
+        {
+            if(points.Count==0)
+            {
+                points.Add(input);
+                return;
+            }
+            double distance = CalcDist(points.Last(), input);
+            if (distance < 8) return;
+
+            double distance2 = CalcDist(pt_begin, input);
+            if (distance2 > fardist) fardist = distance2;
+
+            Point dir = new Point(input.X - points.Last().X, input.Y - points.Last().Y);
+            points.Add(input);
+
+            if (points.Count < 3)
+            {
+                directions.Add(dir);
+                return;
+            }
+
+            double ang = CalcAngle(dir, directions.Last());
+            if (double.IsNaN(ang)) ang = 0;
+            directions.Add(dir);
+
+            angles.Add(ang);
+
+            //debug
+            Ellipse pt = new Ellipse();
+            pt.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            pt.Width = pt.Height = 5;
+            debug.Children.Add(pt);
+            Canvas.SetLeft(pt, dispindex++ * 4.0);
+            Canvas.SetTop(pt, 90.0 - ang);
+        }
+
         private void SmartAnalyze()
         {
 
+        }
+
+        private List<int> CheckOutlier(double avg)
+        {
+            List<int> ret = new List<int>();
+
+            List<double> ang_stat = new List<double>(angles);
+            ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
+            ang_stat.Sort();
+            double q1 = ang_stat[ang_stat.Count / 4], q2 = ang_stat[ang_stat.Count / 2], q3 = ang_stat[ang_stat.Count * 3 / 4];
+            double split_top = (q3 - q1) * 2 + q3, split_down = q1 - (q3 - q1) * 2;
+
+            for(int i=1;i<angles.Count-1;i++)
+            {
+                if (angles[i] >= split_top || angles[i] <= split_down)
+                {
+                    int pos = i;
+                    i++; if (i > angles.Count - 2) break;
+                    while (angles[i] >= split_top || angles[i] <= split_down)
+                    {
+                        if (Math.Abs(angles[i]) > Math.Abs(angles[i - 1])) pos = i;
+                        i++; if (i > angles.Count - 2) break;
+                    }
+                    ret.Add(pos);
+                }
+            }
+
+            return ret;
         }
     }
 }

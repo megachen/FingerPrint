@@ -1095,6 +1095,8 @@
 
         <Canvas x:Name="cnv_preview" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased" Background="Transparent" DoubleTap="OnDoubleTap"/>
 
+        <Canvas x:Name="cnv_debug" Height="180" VerticalAlignment="Top"/>
+        
         <Grid x:Name="grd_function">
             <TextBlock x:Name="txt_tips" VerticalAlignment="Top" FontSize="48" Foreground="#FF7F7F7F" IsHitTestVisible="False"/>
             <Grid x:Name="grd_menu_right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="400" Height="400">

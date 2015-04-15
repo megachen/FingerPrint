@@ -38,7 +38,7 @@ namespace FingerPrint
 
             InitializeComponent();
 
-            draw = new DrawHelper(cnv_paint, cnv_preview);
+            draw = new DrawHelper(cnv_paint, cnv_preview, cnv_debug);
             menuState = false;
             btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
