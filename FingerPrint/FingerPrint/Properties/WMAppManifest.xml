@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="zh-CN" />
-  <App xmlns="" ProductID="{5b3199b2-3028-477d-b5f6-604f2ed800a5}" Title="FingerPrint" RuntimeType="Silverlight" Version="0.3.0" Genre="apps.normal" Author="MegaChen" Description="Draw simple shapes with only one finger!" SDOptOut="false" BackUpOptOut="false" Publisher="MaXon" PublisherID="{caa56938-b1ca-4a70-a855-4ec29c8729d2}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{5b3199b2-3028-477d-b5f6-604f2ed800a5}" Title="指印 Finger Print" RuntimeType="Silverlight" Version="0.3.0" Genre="apps.normal" Author="MegaChen" Description="Draw simple shapes with only one finger!" SDOptOut="false" BackUpOptOut="false" Publisher="MaXon" PublisherID="{caa56938-b1ca-4a70-a855-4ec29c8729d2}">
+    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\LogoMedium.fw.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_SENSORS" />
@@ -16,21 +16,25 @@
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="FingerPrintToken" TaskName="_default">
-        <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+        <TemplateIconic>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\LogoSmall.fw.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>FingerPrint</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <DeviceLockImageURI>
+          <IconImageURI IsRelative="true" IsResource="false">Assets\Tiles\LogoMedium.fw.png</IconImageURI>
+          <Title>指印画图</Title>
+          <Message>
+          </Message>
+          <BackgroundColor>
+          </BackgroundColor>
+          <HasLarge>false</HasLarge>
+          <LargeContent1>
+          </LargeContent1>
+          <LargeContent2>
+          </LargeContent2>
+          <LargeContent3>
+          </LargeContent3>
+          <DeviceLockImageURI IsRelative="true" IsResource="false">
           </DeviceLockImageURI>
-          <HasLarge>False</HasLarge>
-        </TemplateFlip>
+        </TemplateIconic>
       </PrimaryToken>
     </Tokens>
     <ScreenResolutions>

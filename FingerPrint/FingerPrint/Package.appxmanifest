@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="8d7e2d9c-35e6-41e6-a59e-b002fdac802f" Publisher="CN=MegaChen" Version="0.0.3.157" />
+  <Identity Name="13127MaXon.FingerPrint" Publisher="CN=8F048CDD-1C1F-43A8-8595-EDE5119A2BA1" Version="0.0.3.157" />
   <mp:PhoneIdentity PhoneProductId="5b3199b2-3028-477d-b5f6-604f2ed800a5" PhonePublisherId="caa56938-b1ca-4a70-a855-4ec29c8729d2" />
   <Properties>
-    <DisplayName>FingerPrint</DisplayName>
-    <PublisherDisplayName>MegaChen</PublisherDisplayName>
+    <DisplayName>指印 Finger Print</DisplayName>
+    <PublisherDisplayName>MaXon</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

@@ -70,7 +70,7 @@ namespace FingerPrint
             board = input;
             preview = pv;
             debug = deb;
-            dispindex = 0;
+            //dispindex = 0;
             Clearboard();
 
             colorDict = new Dictionary<string, Color>();
@@ -164,19 +164,19 @@ namespace FingerPrint
                 case Drawstate.Free:
                 case Drawstate.Smart:
                     debug.Children.Clear();
-                    Line dline = new Line(); Line dline2 = new Line(); Line dline3 = new Line(); Line dline4 = new Line(); Line dline5 = new Line();
-                    dline.X1 = dline2.X1 = dline3.X1 = dline4.X1 = dline5.X1 = 0;
-                    dline.Y1 = debug.ActualHeight / 2;
-                    dline2.Y1 = 60; dline3.Y1 = 80; dline4.Y1 = 100; dline5.Y1 = 120;
-                    dline.X2 = dline2.X2 = dline3.X2 = dline4.X2 = dline5.X2 = debug.ActualWidth;
-                    dline.Y2 = debug.ActualHeight / 2;
-                    dline2.Y2 = 60; dline3.Y2 = 80; dline4.Y2 = 100; dline5.Y2 = 120;
-                    dline.Stroke = new SolidColorBrush(Color.FromArgb(255, 200, 200, 0));
-                    dline.StrokeThickness = dline2.StrokeThickness = dline3.StrokeThickness = dline4.StrokeThickness = dline5.StrokeThickness = 1;
-                    dline.Opacity = dline2.Opacity = dline3.Opacity = dline4.Opacity = dline5.Opacity = 1;
-                    dline2.Stroke = dline3.Stroke = dline4.Stroke = dline5.Stroke = new SolidColorBrush(Color.FromArgb(180, 200, 200, 0));
-                    debug.Children.Add(dline); debug.Children.Add(dline2); debug.Children.Add(dline3); debug.Children.Add(dline4); debug.Children.Add(dline5);
-                    dispindex = 0;
+                    //Line dline = new Line(); Line dline2 = new Line(); Line dline3 = new Line(); Line dline4 = new Line(); Line dline5 = new Line();
+                    //dline.X1 = dline2.X1 = dline3.X1 = dline4.X1 = dline5.X1 = 0;
+                    //dline.Y1 = debug.ActualHeight / 2;
+                    //dline2.Y1 = 60; dline3.Y1 = 80; dline4.Y1 = 100; dline5.Y1 = 120;
+                    //dline.X2 = dline2.X2 = dline3.X2 = dline4.X2 = dline5.X2 = debug.ActualWidth;
+                    //dline.Y2 = debug.ActualHeight / 2;
+                    //dline2.Y2 = 60; dline3.Y2 = 80; dline4.Y2 = 100; dline5.Y2 = 120;
+                    //dline.Stroke = new SolidColorBrush(Color.FromArgb(255, 200, 200, 0));
+                    //dline.StrokeThickness = dline2.StrokeThickness = dline3.StrokeThickness = dline4.StrokeThickness = dline5.StrokeThickness = 1;
+                    //dline.Opacity = dline2.Opacity = dline3.Opacity = dline4.Opacity = dline5.Opacity = 1;
+                    //dline2.Stroke = dline3.Stroke = dline4.Stroke = dline5.Stroke = new SolidColorBrush(Color.FromArgb(180, 200, 200, 0));
+                    //debug.Children.Add(dline); debug.Children.Add(dline2); debug.Children.Add(dline3); debug.Children.Add(dline4); debug.Children.Add(dline5);
+                    //dispindex = 0;
 
                     inputCollection.Add(input);
                     points.Clear(); directions.Clear(); angles.Clear();
@@ -631,12 +631,12 @@ namespace FingerPrint
             angles.Add(ang);
 
             //debug
-            Ellipse pt = new Ellipse();
-            pt.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-            pt.Width = pt.Height = 5;
-            debug.Children.Add(pt);
-            Canvas.SetLeft(pt, dispindex++ * 4.0);
-            Canvas.SetTop(pt, 90.0 - ang);
+            //Ellipse pt = new Ellipse();
+            //pt.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            //pt.Width = pt.Height = 5;
+            //debug.Children.Add(pt);
+            //Canvas.SetLeft(pt, dispindex++ * 4.0);
+            //Canvas.SetTop(pt, 90.0 - ang);
         }
 
         private void SmartAnalyze()

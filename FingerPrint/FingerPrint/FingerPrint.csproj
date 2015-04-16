@@ -122,17 +122,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include="FingerPrint_2015_04_17_00_27_45.sap" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\AlignmentGrid.png" />
-    <Content Include="Assets\ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\BadgeLogo.png" />
     <Content Include="Assets\Icons\add.png" />
     <Content Include="Assets\Icons\back.png" />
     <Content Include="Assets\Icons\basecircle.png" />
@@ -183,12 +179,8 @@
     <Content Include="Assets\Icons\transport.play.png" />
     <Content Include="Assets\Icons\transport.rew.png" />
     <Content Include="Assets\Icons\upload.png" />
-    <Content Include="Assets\Logo.png" />
-    <Content Include="Assets\SplashScreen.png" />
-    <Content Include="Assets\SquareTile150x150.png" />
-    <Content Include="Assets\SquareTile71x71.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\Tiles\LogoMedium.fw.png" />
+    <Content Include="Assets\Tiles\LogoSmall.fw.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
