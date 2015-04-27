@@ -27,6 +27,7 @@ namespace FingerPrint
     {
         private DrawHelper draw;
         private bool menuState;
+        private bool leftHandMode;
         private string colorSelectionState;
 
         public MainPage()
@@ -39,7 +40,7 @@ namespace FingerPrint
             InitializeComponent();
 
             draw = new DrawHelper(cnv_paint, cnv_preview, cnv_debug);
-            menuState = false;
+            menuState = false; leftHandMode = false;
             btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
 
