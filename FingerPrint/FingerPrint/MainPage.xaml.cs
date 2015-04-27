@@ -150,6 +150,14 @@ namespace FingerPrint
             menuCloseAnime.Begin();
         }
 
+        private void OnClkBack(object sender, RoutedEventArgs e)
+        {
+            colorSelectionState = "";
+            menuColorCloseAnime.Begin();
+            menuSubMainAnime.Begin();
+            menuBackOutAnime.Begin();
+        }
+
         private void OnClkMod(object sender, RoutedEventArgs e)
         {
 
@@ -173,6 +181,7 @@ namespace FingerPrint
             colorSelectionState = (sender as Button).Content.ToString();
             menuMainSubAnime.Begin();
             menuColorOpenAnime.Begin();
+            menuBackInAnime.Begin();
         }
 
         private void OnClkColor(object sender, RoutedEventArgs e)

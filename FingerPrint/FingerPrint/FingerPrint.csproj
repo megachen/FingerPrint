@@ -179,6 +179,8 @@
     <Content Include="Assets\Icons\transport.play.png" />
     <Content Include="Assets\Icons\transport.rew.png" />
     <Content Include="Assets\Icons\upload.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
     <Content Include="Assets\Tiles\LogoMedium.fw.png" />
     <Content Include="Assets\Tiles\LogoSmall.fw.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">

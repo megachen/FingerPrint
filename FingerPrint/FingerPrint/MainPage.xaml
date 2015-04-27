@@ -24,6 +24,9 @@
                 <Ellipse Stroke="#FF7F7F7F" StrokeThickness="5" Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="tmp_CanvasZoom" TargetType="Slider">
+			
+        </ControlTemplate>
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot 是包含所有页面内容的根网格-->
@@ -486,6 +489,20 @@
                                  Storyboard.TargetProperty="(UIElement.Opacity)"/>
             </Storyboard>
             <Storyboard x:Name="menuSubMainAnime">
+                <DoubleAnimation From="400" To="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation From="400" To="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
                                  Storyboard.TargetName="btn_clear"
                                  Storyboard.TargetProperty="(Canvas.Left)">
@@ -682,6 +699,20 @@
                 </DoubleAnimation>
             </Storyboard>
             <Storyboard x:Name="menuMainSubAnime">
+                <DoubleAnimation To="400" From="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="400" From="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
                                  Storyboard.TargetName="btn_clear"
                                  Storyboard.TargetProperty="(Canvas.Left)">
@@ -1089,6 +1120,38 @@
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
             </Storyboard>
+            <Storyboard x:Name="menuBackInAnime">
+                <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="menuBackOutAnime">
+                <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
         </Grid.Resources>
 
         <Canvas x:Name="cnv_paint" Background="Black"/>
@@ -1099,7 +1162,77 @@
         
         <Grid x:Name="grd_function">
             <TextBlock x:Name="txt_tips" VerticalAlignment="Top" FontSize="48" Foreground="#FF7F7F7F" IsHitTestVisible="False"/>
-            <Grid x:Name="grd_menu_right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="400" Height="400">
+            <Grid x:Name="grd_menu_left" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="400" Height="400">
+                <Canvas x:Name="cnv_menu_left_panel">
+                    <Image x:Name="panel_menu_left_outer" Source="/Assets/Icons/panel_outer.fw.png" Canvas.Left="-320" Canvas.Top="80" IsHitTestVisible="False">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="0" CenterX="320" CenterY="320"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="panel_menu_left_middle" Source="/Assets/Icons/panel_middle.fw.png" Canvas.Left="-250" Canvas.Top="150" IsHitTestVisible="False">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="0" CenterX="250" CenterY="250"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="panel_menu_left_inner" Source="/Assets/Icons/panel_inner.fw.png" Canvas.Left="-180" Canvas.Top="220" IsHitTestVisible="False">
+                        <Image.RenderTransform>
+                            <CompositeTransform Rotation="0" CenterX="180" CenterY="180"/>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Button x:Name="btn_menu_left" Width="70" Height="70" Padding="0" Canvas.Left="10" Canvas.Top="320" Click="OnClkMenu" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="60" Height="60" Source="/Assets/Icons/feature.settings.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_back_left" Width="70" Height="70" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkBack" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="60" Height="60" Source="/Assets/Icons/back.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_clear_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_modify_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_save_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/save.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_front_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_foreground}" Content="S"/>
+                    <Button x:Name="btn_board_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_background}" Content="B"/>
+                    <Button x:Name="btn_fill_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_fill}" Content="F"/>
+                    <Button x:Name="btn_closure_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkClosure" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/closure.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_smart_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_smart_Click" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/smart.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_free_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_free_Click" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/free.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_line_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_line_Click" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/line.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_rect_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkRectanger" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/rect.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_ecllipse_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_circle_Click" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/ellipse.fw.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_polygon_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/polygon.fw.png" Stretch="Fill"/>
+                    </Button>
+
+                    <Button x:Name="btn_color_black_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>
+                    <Button x:Name="btn_color_white_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="White" Content="Wh"/>
+                    <Button x:Name="btn_color_red_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Red" Content="Rd"/>
+                    <Button x:Name="btn_color_blue_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="#FF1E5AF0" Content="Bl"/>
+                    <Button x:Name="btn_color_yellow_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Yellow" Content="Ye"/>
+                    <Button x:Name="btn_color_green_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Lime" Content="Gr"/>
+                    <Button x:Name="btn_color_tran_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Content="Tr">
+                        <Button.Foreground>
+                            <ImageBrush ImageSource="/Assets/Icons/transparent.fw.png"/>
+                        </Button.Foreground>
+                    </Button>
+                </Canvas>
+            </Grid>
+            <Grid x:Name="grd_menu_right" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="400" Height="400" Visibility="Collapsed">
                 <Canvas x:Name="cnv_menu_right_panel">
                     <Image x:Name="panel_menu_right_outer" Source="/Assets/Icons/panel_outer.fw.png" Canvas.Left="80" Canvas.Top="80" IsHitTestVisible="False">
                         <Image.RenderTransform>
@@ -1118,6 +1251,9 @@
                     </Image>
                     <Button x:Name="btn_menu" Width="70" Height="70" Padding="0" Canvas.Left="320" Canvas.Top="320" Click="OnClkMenu" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="60" Height="60" Source="/Assets/Icons/feature.settings.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="btn_back" Width="70" Height="70" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkBack" Template="{StaticResource tmp_MenuButton}">
+                        <Image Width="60" Height="60" Source="/Assets/Icons/back.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_clear" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
@@ -1164,6 +1300,8 @@
                             <ImageBrush ImageSource="/Assets/Icons/transparent.fw.png"/>
                         </Button.Foreground>
                     </Button>
+                    
+                    <Slider Width="300" Height="300" Template="{StaticResource tmp_CanvasZoom}"></Slider>
                 </Canvas>
             </Grid>
         </Grid>
