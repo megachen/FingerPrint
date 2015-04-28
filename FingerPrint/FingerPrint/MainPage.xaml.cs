@@ -44,6 +44,35 @@ namespace FingerPrint
             btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
 
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            IDictionary<string, string> param = NavigationContext.QueryString;
+            if (!param.ContainsKey("msg")) { RightHandMode(); return; }
+            if (param["msg"] == "left")
+            {
+                LeftHandMode();
+            }
+            else
+            {
+                RightHandMode();
+            }
+        }
+
+        void LeftHandMode()
+        {
+            grd_menu_left.Visibility = Visibility.Visible;
+            grd_menu_right.Visibility = Visibility.Collapsed;
+            leftHandMode = true;
+        }
+
+        void RightHandMode()
+        {
+            grd_menu_left.Visibility = Visibility.Collapsed;
+            grd_menu_right.Visibility = Visibility.Visible;
+            leftHandMode = false;
+        }
+
         void Instance_ShakeGesture(object sender, ShakeGestureEventArgs e)
         {
             LayoutRoot.Dispatcher.BeginInvoke(() =>
@@ -143,12 +172,14 @@ namespace FingerPrint
             menuState = true;
             Showtips(AppResources.MN_menu);
             menuOpenAnime.Begin();
+            menuOpenAnime_left.Begin();
         }
 
         private void MenuClose()
         {
             menuState = false;
             menuCloseAnime.Begin();
+            menuCloseAnime_left.Begin();
         }
 
         private void OnClkBack(object sender, RoutedEventArgs e)
@@ -157,6 +188,9 @@ namespace FingerPrint
             menuColorCloseAnime.Begin();
             menuSubMainAnime.Begin();
             menuBackOutAnime.Begin();
+            menuColorCloseAnime_left.Begin();
+            menuSubMainAnime_left.Begin();
+            menuBackOutAnime_left.Begin();
         }
 
         private void OnClkMod(object sender, RoutedEventArgs e)
@@ -183,6 +217,9 @@ namespace FingerPrint
             menuMainSubAnime.Begin();
             menuColorOpenAnime.Begin();
             menuBackInAnime.Begin();
+            menuMainSubAnime_left.Begin();
+            menuColorOpenAnime_left.Begin();
+            menuBackInAnime_left.Begin();
         }
 
         private void OnClkColor(object sender, RoutedEventArgs e)
@@ -192,6 +229,10 @@ namespace FingerPrint
             colorSelectionState = "";
             menuColorCloseAnime.Begin();
             menuSubMainAnime.Begin();
+            menuBackOutAnime.Begin();
+            menuColorCloseAnime_left.Begin();
+            menuSubMainAnime_left.Begin();
+            menuBackOutAnime_left.Begin();
         }
 
         private void OnClkClosure(object sender, RoutedEventArgs e)

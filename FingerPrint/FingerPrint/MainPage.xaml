@@ -1155,14 +1155,14 @@
 
             <Storyboard x:Name="menuOpenAnime_left">
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1170,14 +1170,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="170" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1185,14 +1185,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1200,14 +1200,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1215,14 +1215,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1230,14 +1230,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1245,14 +1245,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1260,14 +1260,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="88" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1275,14 +1275,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="180" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="108" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1290,14 +1290,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="146" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="144" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1305,14 +1305,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="196" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="194" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1320,14 +1320,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="232" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="260" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1335,14 +1335,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="252" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1350,14 +1350,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="90" From="0" Duration="00:00:0.3" BeginTime="00:00:0"
-                                 Storyboard.TargetName="panel_menu_right_inner"
+                                 Storyboard.TargetName="panel_menu_left_inner"
                                  Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="0.5" To="1" Duration="00:00:0.3" BeginTime="00:00:0"
-                                 Storyboard.TargetName="panel_menu_right_inner"
+                                 Storyboard.TargetName="panel_menu_left_inner"
                                  Storyboard.TargetProperty="(UIElement.Opacity)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1365,14 +1365,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="90" From="0" Duration="00:00:0.3" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="panel_menu_right_middle"
+                                 Storyboard.TargetName="panel_menu_left_middle"
                                  Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="0.5" To="1" Duration="00:00:0.3" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="panel_menu_right_middle"
+                                 Storyboard.TargetName="panel_menu_left_middle"
                                  Storyboard.TargetProperty="(UIElement.Opacity)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1380,14 +1380,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="90" From="0" Duration="00:00:0.3" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="panel_menu_right_outer"
+                                 Storyboard.TargetName="panel_menu_left_outer"
                                  Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="0.5" To="1" Duration="00:00:0.3" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="panel_menu_right_outer"
+                                 Storyboard.TargetName="panel_menu_left_outer"
                                  Storyboard.TargetProperty="(UIElement.Opacity)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1396,14 +1396,14 @@
             </Storyboard>
             <Storyboard x:Name="menuCloseAnime_left">
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1411,14 +1411,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="170" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1426,14 +1426,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1441,14 +1441,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1456,14 +1456,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1471,14 +1471,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1486,14 +1486,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1501,14 +1501,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="88" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1516,14 +1516,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="180" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="108" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1531,14 +1531,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="146" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="144" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1546,14 +1546,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="196" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="194" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1561,14 +1561,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="232" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="260" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1576,14 +1576,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="252" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1591,39 +1591,39 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="1" To="0" Duration="00:00:0.3" BeginTime="00:00:0"
-                                 Storyboard.TargetName="panel_menu_right_inner"
+                                 Storyboard.TargetName="panel_menu_left_inner"
                                  Storyboard.TargetProperty="(UIElement.Opacity)"/>
                 <DoubleAnimation From="1" To="0" Duration="00:00:0.3" BeginTime="00:00:0"
-                                 Storyboard.TargetName="panel_menu_right_middle"
+                                 Storyboard.TargetName="panel_menu_left_middle"
                                  Storyboard.TargetProperty="(UIElement.Opacity)"/>
                 <DoubleAnimation From="1" To="0" Duration="00:00:0.3" BeginTime="00:00:0"
-                                 Storyboard.TargetName="panel_menu_right_outer"
+                                 Storyboard.TargetName="panel_menu_left_outer"
                                  Storyboard.TargetProperty="(UIElement.Opacity)"/>
             </Storyboard>
             <Storyboard x:Name="menuSubMainAnime_left">
                 <DoubleAnimation From="-70" To="10" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetName="btn_menu_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetName="btn_menu_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1631,14 +1631,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="170" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1646,14 +1646,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1661,14 +1661,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1676,14 +1676,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1691,14 +1691,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1706,14 +1706,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1721,14 +1721,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="88" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1736,14 +1736,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="180" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="108" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1751,14 +1751,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="146" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="144" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1766,14 +1766,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="196" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="194" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1781,14 +1781,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="232" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="260" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1796,14 +1796,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="252" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1812,28 +1812,28 @@
             </Storyboard>
             <Storyboard x:Name="menuMainSubAnime_left">
                 <DoubleAnimation To="-70" From="10" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetName="btn_menu_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_menu"
+                                 Storyboard.TargetName="btn_menu_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_clear"
+                                 Storyboard.TargetName="btn_clear_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1841,14 +1841,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="170" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_modify"
+                                 Storyboard.TargetName="btn_modify_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1856,14 +1856,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_save"
+                                 Storyboard.TargetName="btn_save_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1871,14 +1871,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_front"
+                                 Storyboard.TargetName="btn_front_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1886,14 +1886,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_board"
+                                 Storyboard.TargetName="btn_board_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1901,14 +1901,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_fill"
+                                 Storyboard.TargetName="btn_fill_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1916,14 +1916,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_closure"
+                                 Storyboard.TargetName="btn_closure_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1931,14 +1931,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="88" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_smart"
+                                 Storyboard.TargetName="btn_smart_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1946,14 +1946,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="180" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="108" Duration="00:00:0.15" BeginTime="00:00:0.3"
-                                 Storyboard.TargetName="btn_free"
+                                 Storyboard.TargetName="btn_free_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1961,14 +1961,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="146" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="144" Duration="00:00:0.15" BeginTime="00:00:0.35"
-                                 Storyboard.TargetName="btn_line"
+                                 Storyboard.TargetName="btn_line_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1976,14 +1976,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="196" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="194" Duration="00:00:0.15" BeginTime="00:00:0.4"
-                                 Storyboard.TargetName="btn_rect"
+                                 Storyboard.TargetName="btn_rect_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -1991,14 +1991,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="232" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="260" Duration="00:00:0.15" BeginTime="00:00:0.45"
-                                 Storyboard.TargetName="btn_ecllipse"
+                                 Storyboard.TargetName="btn_ecllipse_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2006,14 +2006,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="252" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.5"
-                                 Storyboard.TargetName="btn_polygon"
+                                 Storyboard.TargetName="btn_polygon_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2022,14 +2022,14 @@
             </Storyboard>
             <Storyboard x:Name="menuColorOpenAnime_left">
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_color_black"
+                                 Storyboard.TargetName="btn_color_black_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_color_black"
+                                 Storyboard.TargetName="btn_color_black_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2037,14 +2037,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="70" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_color_white"
+                                 Storyboard.TargetName="btn_color_white_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_color_white"
+                                 Storyboard.TargetName="btn_color_white_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2052,14 +2052,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_tran"
+                                 Storyboard.TargetName="btn_color_tran_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_tran"
+                                 Storyboard.TargetName="btn_color_tran_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2067,14 +2067,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_red"
+                                 Storyboard.TargetName="btn_color_red_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_red"
+                                 Storyboard.TargetName="btn_color_red_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2082,14 +2082,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_color_blue"
+                                 Storyboard.TargetName="btn_color_blue_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_color_blue"
+                                 Storyboard.TargetName="btn_color_blue_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2097,14 +2097,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_color_yellow"
+                                 Storyboard.TargetName="btn_color_yellow_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_color_yellow"
+                                 Storyboard.TargetName="btn_color_yellow_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2112,14 +2112,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation From="-60" To="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_color_green"
+                                 Storyboard.TargetName="btn_color_green_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_color_green"
+                                 Storyboard.TargetName="btn_color_green_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2128,14 +2128,14 @@
             </Storyboard>
             <Storyboard x:Name="menuColorCloseAnime_left">
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_color_black"
+                                 Storyboard.TargetName="btn_color_black_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="230" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_color_black"
+                                 Storyboard.TargetName="btn_color_black_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2143,14 +2143,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="70" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_color_white"
+                                 Storyboard.TargetName="btn_color_white_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="270" Duration="00:00:0.15" BeginTime="00:00:0.05"
-                                 Storyboard.TargetName="btn_color_white"
+                                 Storyboard.TargetName="btn_color_white_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2158,14 +2158,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="110" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_tran"
+                                 Storyboard.TargetName="btn_color_tran_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_tran"
+                                 Storyboard.TargetName="btn_color_tran_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2173,14 +2173,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="5" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_red"
+                                 Storyboard.TargetName="btn_color_red_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="160" Duration="00:00:0.15" BeginTime="00:00:0.1"
-                                 Storyboard.TargetName="btn_color_red"
+                                 Storyboard.TargetName="btn_color_red_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2188,14 +2188,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="85" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_color_blue"
+                                 Storyboard.TargetName="btn_color_blue_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="190" Duration="00:00:0.15" BeginTime="00:00:0.15"
-                                 Storyboard.TargetName="btn_color_blue"
+                                 Storyboard.TargetName="btn_color_blue_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2203,14 +2203,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="150" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_color_yellow"
+                                 Storyboard.TargetName="btn_color_yellow_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="255" Duration="00:00:0.15" BeginTime="00:00:0.2"
-                                 Storyboard.TargetName="btn_color_yellow"
+                                 Storyboard.TargetName="btn_color_yellow_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2218,14 +2218,14 @@
                 </DoubleAnimation>
 
                 <DoubleAnimation To="-60" From="180" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_color_green"
+                                 Storyboard.TargetName="btn_color_green_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="335" Duration="00:00:0.15" BeginTime="00:00:0.25"
-                                 Storyboard.TargetName="btn_color_green"
+                                 Storyboard.TargetName="btn_color_green_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2234,14 +2234,14 @@
             </Storyboard>
             <Storyboard x:Name="menuBackInAnime_left">
                 <DoubleAnimation From="-70" To="10" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetName="btn_back_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation From="400" To="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetName="btn_back_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2250,14 +2250,14 @@
             </Storyboard>
             <Storyboard x:Name="menuBackOutAnime_left">
                 <DoubleAnimation To="-70" From="10" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetName="btn_back_left"
                                  Storyboard.TargetProperty="(Canvas.Left)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
                 <DoubleAnimation To="400" From="320" Duration="00:00:0.15" BeginTime="00:00:0.0"
-                                 Storyboard.TargetName="btn_back"
+                                 Storyboard.TargetName="btn_back_left"
                                  Storyboard.TargetProperty="(Canvas.Top)">
                     <DoubleAnimation.EasingFunction>
                         <PowerEase EasingMode="EaseInOut"/>
@@ -2294,50 +2294,50 @@
                     <Button x:Name="btn_menu_left" Width="70" Height="70" Padding="0" Canvas.Left="10" Canvas.Top="320" Click="OnClkMenu" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="60" Height="60" Source="/Assets/Icons/feature.settings.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_back_left" Width="70" Height="70" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkBack" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_back_left" Width="70" Height="70" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkBack" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="60" Height="60" Source="/Assets/Icons/back.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_clear_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_clear_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_modify_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_modify_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_save_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_save_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/save.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_front_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_foreground}" Content="S"/>
-                    <Button x:Name="btn_board_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_background}" Content="B"/>
-                    <Button x:Name="btn_fill_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_fill}" Content="F"/>
-                    <Button x:Name="btn_closure_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkClosure" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_front_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_foreground}" Content="S"/>
+                    <Button x:Name="btn_board_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_background}" Content="B"/>
+                    <Button x:Name="btn_fill_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColorChange" Template="{StaticResource tmp_MenuButton}" Background="{Binding brush_fill}" Content="F"/>
+                    <Button x:Name="btn_closure_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkClosure" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/closure.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_smart_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_smart_Click" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_smart_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appBtn_smart_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/smart.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_free_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_free_Click" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_free_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appBtn_free_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/free.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_line_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_line_Click" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_line_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appBtn_line_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/line.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_rect_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkRectanger" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_rect_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkRectanger" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/rect.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_ecllipse_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appBtn_circle_Click" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_ecllipse_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appBtn_circle_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/ellipse.fw.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_polygon_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_polygon_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/polygon.fw.png" Stretch="Fill"/>
                     </Button>
 
-                    <Button x:Name="btn_color_black_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>
-                    <Button x:Name="btn_color_white_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="White" Content="Wh"/>
-                    <Button x:Name="btn_color_red_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Red" Content="Rd"/>
-                    <Button x:Name="btn_color_blue_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="#FF1E5AF0" Content="Bl"/>
-                    <Button x:Name="btn_color_yellow_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Yellow" Content="Ye"/>
-                    <Button x:Name="btn_color_green_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Lime" Content="Gr"/>
-                    <Button x:Name="btn_color_tran_left" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Content="Tr">
+                    <Button x:Name="btn_color_black_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>
+                    <Button x:Name="btn_color_white_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="White" Content="Wh"/>
+                    <Button x:Name="btn_color_red_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Red" Content="Rd"/>
+                    <Button x:Name="btn_color_blue_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="#FF1E5AF0" Content="Bl"/>
+                    <Button x:Name="btn_color_yellow_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Yellow" Content="Ye"/>
+                    <Button x:Name="btn_color_green_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Lime" Content="Gr"/>
+                    <Button x:Name="btn_color_tran_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Content="Tr">
                         <Button.Foreground>
                             <ImageBrush ImageSource="/Assets/Icons/transparent.fw.png"/>
                         </Button.Foreground>
