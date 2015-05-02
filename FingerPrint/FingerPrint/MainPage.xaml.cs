@@ -27,21 +27,33 @@ namespace FingerPrint
     {
         private DrawHelper draw;
         private bool menuState;
+        private bool holdState;
         private bool leftHandMode;
+        private Point last_pos;
         private string colorSelectionState;
 
         public MainPage()
         {
             ShakeGesturesHelper.Instance.ShakeGesture +=
                 new EventHandler<ShakeGestureEventArgs>(Instance_ShakeGesture);
-            ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 4;
+            ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 6;
             ShakeGesturesHelper.Instance.Active = true;
 
             InitializeComponent();
 
             draw = new DrawHelper(cnv_paint, cnv_preview, cnv_debug);
             menuState = false; leftHandMode = false;
-            btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
+            btn_front_left.DataContext = btn_board_left.DataContext = btn_fill_left.DataContext = btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
+        }
+
+        void Instance_ShakeGesture(object sender, ShakeGestureEventArgs e)
+        {
+            LayoutRoot.Dispatcher.BeginInvoke(() =>
+            {
+                VibrateController.Default.Start(TimeSpan.FromMilliseconds(300));
+                Showtips(AppResources.FO_undo);
+                draw.Undo();
+            });
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -64,6 +76,7 @@ namespace FingerPrint
             grd_menu_left.Visibility = Visibility.Visible;
             grd_menu_right.Visibility = Visibility.Collapsed;
             leftHandMode = true;
+            leftHandModeInAnime.Begin();
         }
 
         void RightHandMode()
@@ -71,16 +84,81 @@ namespace FingerPrint
             grd_menu_left.Visibility = Visibility.Collapsed;
             grd_menu_right.Visibility = Visibility.Visible;
             leftHandMode = false;
+            rightHandModeInAnime.Begin();
         }
 
-        void Instance_ShakeGesture(object sender, ShakeGestureEventArgs e)
+        private void OnHold(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            LayoutRoot.Dispatcher.BeginInvoke(() =>
+            if (menuState) return;
+            holdState = true;
+            if (leftHandMode)
             {
-                VibrateController.Default.Start(TimeSpan.FromMilliseconds(300));
-                Showtips(AppResources.FO_undo);
-                draw.Undo();
-            });
+                cnv_menu_left_panel.CaptureMouse();
+                last_pos = new Point(10, 320);
+            }
+            else
+            {
+                cnv_menu_right_panel.CaptureMouse();
+                last_pos = new Point(320, 320);
+            }
+        }
+
+        private void OnMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (holdState)
+            {
+                Point pos;
+                if (leftHandMode)
+                {
+                    pos = e.GetPosition(cnv_menu_left_panel);
+                    Canvas.SetLeft(btn_menu_left, pos.X - 35);
+                    Canvas.SetTop(btn_menu_left, pos.Y - 35);
+                }
+                else
+                {
+                    pos = e.GetPosition(cnv_menu_right_panel);
+                    Canvas.SetLeft(btn_menu, pos.X - 35);
+                    Canvas.SetTop(btn_menu, pos.Y - 35);
+                }
+                last_pos = pos;
+            }
+        }
+
+        private void OnRelease(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (holdState)
+            {
+                holdState = false;
+
+                if(leftHandMode)
+                {
+                    if(draw.CalcDist(last_pos, new Point(10,320))>20)
+                    {
+                        leftHandModeOutAnime.Begin();
+                        RightHandMode();
+                    }
+                    else
+                    {
+                        Canvas.SetLeft(btn_menu_left, 10);
+                        Canvas.SetTop(btn_menu_left, 320);
+                    }
+                    cnv_menu_left_panel.ReleaseMouseCapture();
+                }
+                else
+                {
+                    if (draw.CalcDist(last_pos, new Point(320, 320)) > 20)
+                    {
+                        rightHandModeOutAnime.Begin();
+                        LeftHandMode();
+                    }
+                    else
+                    {
+                        Canvas.SetLeft(btn_menu_left, 320);
+                        Canvas.SetTop(btn_menu_left, 320);
+                    }
+                    cnv_menu_right_panel.ReleaseMouseCapture();
+                }
+            }
         }
 
         private void OnPressed(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -163,6 +241,10 @@ namespace FingerPrint
 
         private void OnClkMenu(object sender, RoutedEventArgs e)
         {
+            double dist;
+            if(leftHandMode)dist = draw.CalcDist(new Point(10,320), new Point(Canvas.GetLeft(btn_menu_left),Canvas.GetTop(btn_menu_left)));
+            else dist = draw.CalcDist(new Point(320,320), new Point(Canvas.GetLeft(btn_menu),Canvas.GetTop(btn_menu)));
+            if (dist > 5) return;
             if (!menuState) MenuOpen();
             else MenuClose();
         }

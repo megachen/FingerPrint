@@ -22,6 +22,23 @@ namespace FingerPrint
             InitializeComponent();
         }
 
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            PhoneApplicationFrame myFrame = Application.Current.RootVisual as PhoneApplicationFrame;
+            if (myFrame != null)
+            {
+                try
+                {
+                    myFrame.RemoveBackEntry();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
         private void OnHold(object sender, System.Windows.Input.MouseEventArgs e)
         {
             hold = true;
@@ -33,8 +50,8 @@ namespace FingerPrint
             if (hold)
             {
                 Point pos = e.GetPosition(cnv_drag);
-                Canvas.SetLeft(button, pos.X - 70);
-                Canvas.SetTop(button, pos.Y - 70);
+                Canvas.SetLeft(button, pos.X - 100);
+                Canvas.SetTop(button, pos.Y - 100);
                 last_pos = pos;
             }
         }
@@ -54,8 +71,8 @@ namespace FingerPrint
                 }
                 else
                 {
-                    Canvas.SetLeft(button, cnv_drag.ActualWidth / 2 - 70);
-                    Canvas.SetTop(button, cnv_drag.ActualHeight / 2 + 70);
+                    Canvas.SetLeft(button, cnv_drag.ActualWidth / 2 - 100);
+                    Canvas.SetTop(button, cnv_drag.ActualHeight / 2 + 100);
                 }
             }
             cnv_drag.ReleaseMouseCapture();
@@ -63,8 +80,8 @@ namespace FingerPrint
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            Canvas.SetLeft(button, cnv_drag.ActualWidth / 2 - 70);
-            Canvas.SetTop(button, cnv_drag.ActualHeight / 2 + 70);
+            Canvas.SetLeft(button, cnv_drag.ActualWidth / 2 - 100);
+            Canvas.SetTop(button, cnv_drag.ActualHeight / 2 + 100);
             Storyboard_Init.Begin();
         }
     }

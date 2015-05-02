@@ -509,7 +509,7 @@ namespace FingerPrint
             drawHistory.RemoveAt(drawHistory.Count - 1);
         }
 
-        private double CalcDist(Point a, Point b)
+        public double CalcDist(Point a, Point b)
         {
             return Math.Sqrt((a.X - b.X) * (a.X - b.X) + (a.Y - b.Y) * (a.Y - b.Y));
         }
