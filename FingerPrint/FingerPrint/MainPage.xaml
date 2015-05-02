@@ -1198,6 +1198,54 @@
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
             </Storyboard>
+            <Storyboard x:Name="menuModOpenAnime">
+                <DoubleAnimation From="400" To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation From="400" To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="menuModCloseAnime">
+                <DoubleAnimation To="400" From="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="400" From="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="menuModRestoreAnime">
+                <DoubleAnimation To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
 
             <Storyboard x:Name="leftHandModeInAnime">
                 <DoubleAnimation From="330" To="10" Duration="00:00:0.2"
@@ -2356,9 +2404,61 @@
                     </DoubleAnimation.EasingFunction>
                 </DoubleAnimation>
             </Storyboard>
+            <Storyboard x:Name="menuModOpenAnime_left">
+                <DoubleAnimation From="400" To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation From="400" To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="menuModCloseAnime_left">
+                <DoubleAnimation To="400" From="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="400" From="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="menuModRestoreAnime_left">
+                <DoubleAnimation To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Left)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation To="170" Duration="00:00:0.2" BeginTime="00:00:0.0"
+                                 Storyboard.TargetName="btn_mod_left"
+                                 Storyboard.TargetProperty="(Canvas.Top)">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseInOut"/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
         </Grid.Resources>
 
-        <Canvas x:Name="cnv_paint" Background="Black"/>
+        <Canvas x:Name="cnv_paint" Background="Black" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <CompositeTransform x:Name="scale_paint" ScaleX="1.0" ScaleY="1.0"/>
+            </Canvas.RenderTransform>
+        </Canvas>
 
         <Canvas x:Name="cnv_preview" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased" Background="Transparent" DoubleTap="OnDoubleTap"/>
 
@@ -2392,7 +2492,7 @@
                     <Button x:Name="btn_clear_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_modify_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_modify_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkMod" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_save_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
@@ -2421,6 +2521,10 @@
                     </Button>
                     <Button x:Name="btn_polygon_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/polygon.fw.png" Stretch="Fill"/>
+                    </Button>
+
+                    <Button x:Name="btn_mod_left"  Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Template="{StaticResource tmp_MenuButton}" MouseMove="OnModMove" MouseEnter="OnModHold" MouseLeave="OnModRelease">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
 
                     <Button x:Name="btn_color_black_left" Width="60" Height="60" Padding="0" Canvas.Left="-60" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>
@@ -2462,7 +2566,7 @@
                     <Button x:Name="btn_clear" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="appMenu_clear_Click" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/refresh.png" Stretch="Fill"/>
                     </Button>
-                    <Button x:Name="btn_modify" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkMod" IsEnabled="False" Template="{StaticResource tmp_MenuButton}">
+                    <Button x:Name="btn_modify" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkMod" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
                     <Button x:Name="btn_save" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnCLkSave" Template="{StaticResource tmp_MenuButton}">
@@ -2491,6 +2595,10 @@
                     </Button>
                     <Button x:Name="btn_polygon" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkPolygon" Template="{StaticResource tmp_MenuButton}">
                         <Image Width="40" Height="40" Source="/Assets/Icons/polygon.fw.png" Stretch="Fill"/>
+                    </Button>
+
+                    <Button x:Name="btn_mod"  Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Template="{StaticResource tmp_MenuButton}" MouseMove="OnModMove" MouseEnter="OnModHold" MouseLeave="OnModRelease">
+                        <Image Width="40" Height="40" Source="/Assets/Icons/modify.fw.png" Stretch="Fill"/>
                     </Button>
 
                     <Button x:Name="btn_color_black" Width="60" Height="60" Padding="0" Canvas.Left="400" Canvas.Top="400" Click="OnClkColor" Template="{StaticResource tmp_ColorButton}" Foreground="Black" Content="Bk"/>

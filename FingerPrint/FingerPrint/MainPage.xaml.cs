@@ -266,18 +266,101 @@ namespace FingerPrint
 
         private void OnClkBack(object sender, RoutedEventArgs e)
         {
-            colorSelectionState = "";
-            menuColorCloseAnime.Begin();
+            if(colorSelectionState != "")
+            {
+                colorSelectionState = "";
+                menuColorCloseAnime.Begin();
+                menuColorCloseAnime_left.Begin();
+            }
+            else
+            {
+                menuModCloseAnime.Begin();
+                menuModCloseAnime_left.Begin();
+            }
             menuSubMainAnime.Begin();
             menuBackOutAnime.Begin();
-            menuColorCloseAnime_left.Begin();
             menuSubMainAnime_left.Begin();
             menuBackOutAnime_left.Begin();
         }
 
         private void OnClkMod(object sender, RoutedEventArgs e)
         {
+            menuModOpenAnime.Begin();
+            menuModOpenAnime_left.Begin();
 
+            menuMainSubAnime.Begin();
+            menuBackInAnime.Begin();
+            menuMainSubAnime_left.Begin();
+            menuBackInAnime_left.Begin();
+        }
+
+        double scale = 1.0;
+        private void OnModHold(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            holdState = true;
+            scale = scale_paint.ScaleX;
+            if (leftHandMode)
+            {
+                cnv_menu_left_panel.CaptureMouse();
+                last_pos = new Point(170, 170);
+            }
+            else
+            {
+                cnv_menu_right_panel.CaptureMouse();
+                last_pos = new Point(170, 170);
+            }
+        }
+
+        private void OnModMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (holdState)
+            {
+                Point pos;
+                if (leftHandMode)
+                {
+                    pos = e.GetPosition(cnv_menu_left_panel);
+                    Canvas.SetLeft(btn_mod_left, pos.X - 30);
+                    Canvas.SetTop(btn_mod_left, pos.Y - 30);
+
+                    double para = 400.0 - pos.X - pos.Y;
+                    if (Math.Abs(para) > 10)
+                    {
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, para / 100.0);
+                    }
+                }
+                else
+                {
+                    pos = e.GetPosition(cnv_menu_right_panel);
+                    Canvas.SetLeft(btn_mod, pos.X - 30);
+                    Canvas.SetTop(btn_mod, pos.Y - 30);
+
+                    double para = pos.X - pos.Y;
+                    if (Math.Abs(para) > 10)
+                    {
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, para / 100.0);
+                    }
+                }
+                last_pos = pos;
+            }
+        }
+
+        private void OnModRelease(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (holdState)
+            {
+                holdState = false;
+
+                if (leftHandMode)
+                {
+                    menuModRestoreAnime_left.Begin();
+                    cnv_menu_left_panel.ReleaseMouseCapture();
+                }
+                else
+                {
+                    menuModRestoreAnime.Begin();
+                    cnv_menu_right_panel.ReleaseMouseCapture();
+                }
+            }
         }
 
         private void OnCLkSave(object sender, RoutedEventArgs e)

@@ -502,6 +502,20 @@ namespace FingerPrint
             inputCollection = new PointCollection();
         }
 
+        public void ModSize(double ratio)
+        {
+
+        }
+
+        public void ModPosition(Point shift)
+        {
+            foreach (UIElement i in board.Children)
+            {
+                Canvas.SetLeft(i, shift.X);
+                Canvas.SetTop(i, shift.Y);
+            }
+        }
+
         public void Undo()
         {
             if (drawHistory.Count < 1) return;
