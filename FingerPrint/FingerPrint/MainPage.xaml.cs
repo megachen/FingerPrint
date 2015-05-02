@@ -15,8 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Devices;
+using Microsoft.Devices.Sensors;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+//using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 using FingerPrint.Resources;
 using ShakeGestures;
@@ -29,8 +31,9 @@ namespace FingerPrint
         private bool menuState;
         private bool holdState;
         private bool leftHandMode;
-        private Point last_pos;
+        private System.Windows.Point last_pos;
         private string colorSelectionState;
+        Accelerometer sen_accel;
 
         public MainPage()
         {
@@ -39,10 +42,14 @@ namespace FingerPrint
             ShakeGesturesHelper.Instance.MinimumRequiredMovesForShake = 6;
             ShakeGesturesHelper.Instance.Active = true;
 
+            sen_accel = new Accelerometer();
+            sen_accel.TimeBetweenUpdates = TimeSpan.FromMilliseconds(20);
+            sen_accel.CurrentValueChanged += sen_accel_CurrentValueChanged;
+            
             InitializeComponent();
 
             draw = new DrawHelper(cnv_paint, cnv_preview, cnv_debug);
-            menuState = false; leftHandMode = false;
+            menuState = false; leftHandMode = false; colorSelectionState = "";
             btn_front_left.DataContext = btn_board_left.DataContext = btn_fill_left.DataContext = btn_front.DataContext = btn_board.DataContext = btn_fill.DataContext = draw;
         }
 
@@ -54,6 +61,12 @@ namespace FingerPrint
                 Showtips(AppResources.FO_undo);
                 draw.Undo();
             });
+        }
+
+        void sen_accel_CurrentValueChanged(object sender, SensorReadingEventArgs<AccelerometerReading> e)
+        {
+            Point shift = new Point(e.SensorReading.Acceleration.X, e.SensorReading.Acceleration.Y);
+            Dispatcher.BeginInvoke(() => draw.ModPosition(shift));
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -309,6 +322,8 @@ namespace FingerPrint
                 cnv_menu_right_panel.CaptureMouse();
                 last_pos = new Point(170, 170);
             }
+
+            sen_accel.Start();
         }
 
         private void OnModMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -323,9 +338,15 @@ namespace FingerPrint
                     Canvas.SetTop(btn_mod_left, pos.Y - 30);
 
                     double para = 400.0 - pos.X - pos.Y;
-                    if (Math.Abs(para) > 10)
+                    if (para > 20)
                     {
-                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, para / 100.0);
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, (para - 20) / 100.0);
+                        scale_preview.ScaleX = scale_preview.ScaleY = scale * Math.Pow(2, (para - 20) / 100.0);
+                    }
+                    else if (para < -20)
+                    {
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, (para + 20) / 100.0);
+                        scale_preview.ScaleX = scale_preview.ScaleY = scale * Math.Pow(2, (para + 20) / 100.0);
                     }
                 }
                 else
@@ -335,9 +356,15 @@ namespace FingerPrint
                     Canvas.SetTop(btn_mod, pos.Y - 30);
 
                     double para = pos.X - pos.Y;
-                    if (Math.Abs(para) > 10)
+                    if (para > 20)
                     {
-                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, para / 100.0);
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, (para - 20) / 100.0);
+                        scale_preview.ScaleX = scale_preview.ScaleY = scale * Math.Pow(2, (para - 20) / 100.0);
+                    }
+                    else if (para < -20)
+                    {
+                        scale_paint.ScaleX = scale_paint.ScaleY = scale * Math.Pow(2, (para + 20) / 100.0);
+                        scale_preview.ScaleX = scale_preview.ScaleY = scale * Math.Pow(2, (para + 20) / 100.0);
                     }
                 }
                 last_pos = pos;
@@ -350,6 +377,8 @@ namespace FingerPrint
             {
                 holdState = false;
 
+                sen_accel.Stop();
+
                 if (leftHandMode)
                 {
                     menuModRestoreAnime_left.Begin();
@@ -361,6 +390,12 @@ namespace FingerPrint
                     cnv_menu_right_panel.ReleaseMouseCapture();
                 }
             }
+        }
+
+        private void ModPos(Point shift)
+        {
+            scale_paint.TranslateX += shift.X * 10.0;
+            scale_paint.TranslateY -= shift.Y * 10.0;
         }
 
         private void OnCLkSave(object sender, RoutedEventArgs e)

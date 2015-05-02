@@ -2460,7 +2460,11 @@
             </Canvas.RenderTransform>
         </Canvas>
 
-        <Canvas x:Name="cnv_preview" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased" Background="Transparent" DoubleTap="OnDoubleTap"/>
+        <Canvas x:Name="cnv_preview" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="OnPressed" MouseMove="OnMoving" MouseLeftButtonUp="OnReleased" Background="Transparent" DoubleTap="OnDoubleTap">
+            <Canvas.RenderTransform>
+                <CompositeTransform x:Name="scale_preview" ScaleX="1.0" ScaleY="1.0"/>
+            </Canvas.RenderTransform>
+        </Canvas>
 
         <Canvas x:Name="cnv_debug" Height="180" VerticalAlignment="Top"/>
         

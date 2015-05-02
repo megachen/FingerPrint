@@ -511,8 +511,8 @@ namespace FingerPrint
         {
             foreach (UIElement i in board.Children)
             {
-                Canvas.SetLeft(i, shift.X);
-                Canvas.SetTop(i, shift.Y);
+                Canvas.SetLeft(i, Canvas.GetLeft(i) + shift.X * 10.0);
+                Canvas.SetTop(i, Canvas.GetTop(i) - shift.Y * 10.0);
             }
         }
 
