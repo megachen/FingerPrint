@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="13127MaXon.FingerPrint" Publisher="CN=8F048CDD-1C1F-43A8-8595-EDE5119A2BA1" Version="0.2.7.211" />
+  <Identity Name="13127MaXon.4129A16F2639" Publisher="CN=8F048CDD-1C1F-43A8-8595-EDE5119A2BA1" Version="0.3.1.275" />
   <mp:PhoneIdentity PhoneProductId="5b3199b2-3028-477d-b5f6-604f2ed800a5" PhonePublisherId="caa56938-b1ca-4a70-a855-4ec29c8729d2" />
   <Properties>
-    <DisplayName>指印 Finger Print</DisplayName>
+    <DisplayName>指印 FingerPrint</DisplayName>
     <PublisherDisplayName>MaXon</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -41,5 +41,6 @@
   <Capabilities>
     <Capability Name="picturesLibrary" />
     <Capability Name="removableStorage" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>

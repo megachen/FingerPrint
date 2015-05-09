@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="zh-CN" />
-  <App xmlns="" ProductID="{5b3199b2-3028-477d-b5f6-604f2ed800a5}" Title="指印 Finger Print" RuntimeType="Silverlight" Version="0.2.7.211" Genre="apps.normal" Author="MegaChen" Description="Draw simple shapes with only one finger!" SDOptOut="false" BackUpOptOut="false" Publisher="MaXon" PublisherID="{caa56938-b1ca-4a70-a855-4ec29c8729d2}">
+  <App xmlns="" ProductID="{5b3199b2-3028-477d-b5f6-604f2ed800a5}" Title="指印 FingerPrint" RuntimeType="Silverlight" Version="0.3.1.225" Genre="apps.normal" Author="MegaChen" Description="Draw simple shapes with only one finger!" SDOptOut="false" BackUpOptOut="false" Publisher="MaXon" PublisherID="{caa56938-b1ca-4a70-a855-4ec29c8729d2}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\LogoMedium.fw.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

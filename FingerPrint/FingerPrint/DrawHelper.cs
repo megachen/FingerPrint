@@ -502,11 +502,6 @@ namespace FingerPrint
             inputCollection = new PointCollection();
         }
 
-        public void ModSize(double ratio)
-        {
-
-        }
-
         public void ModPosition(Point shift)
         {
             foreach (UIElement i in board.Children)
@@ -629,8 +624,7 @@ namespace FingerPrint
             double distance2 = CalcDist(pt_begin, input);
             if (distance2 > fardist) fardist = distance2;
 
-            Point dir = new Point(input.X - points.Last().X, input.Y - points.Last().Y);
-            points.Add(input);
+            Point dir = new Point(input.X - points.Last().X, input.Y - points.Last().Y);            points.Add(input);
 
             if (points.Count < 3)
             {

@@ -34,6 +34,8 @@ namespace FingerPrint
         private System.Windows.Point last_pos;
         private string colorSelectionState;
         Accelerometer sen_accel;
+        PhotoCamera camera;
+        VideoBrush campreview;
 
         public MainPage()
         {
@@ -414,6 +416,16 @@ namespace FingerPrint
         private void OnClkColorChange(object sender, RoutedEventArgs e)
         {
             colorSelectionState = (sender as Button).Content.ToString();
+            if(colorSelectionState=="B")
+            {
+                btn_color_photo.Visibility = btn_color_photo_left.Visibility = Visibility.Visible;
+                btn_color_tran.Visibility = btn_color_tran_left.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                btn_color_photo.Visibility = btn_color_photo_left.Visibility = Visibility.Collapsed;
+                btn_color_tran.Visibility = btn_color_tran_left.Visibility = Visibility.Visible;
+            }
             menuMainSubAnime.Begin();
             menuColorOpenAnime.Begin();
             menuBackInAnime.Begin();
@@ -447,6 +459,57 @@ namespace FingerPrint
                 draw.closureState = true;
                 btn_closure.Background = new SolidColorBrush(Colors.Red);
             }
+        }
+
+        private void OnClkPhoto(object sender, RoutedEventArgs e)
+        {
+            menuColorCloseAnime.Begin();
+            menuColorCloseAnime_left.Begin();
+            menuBackOutAnime.Begin();
+            menuBackOutAnime_left.Begin();
+            menuPhotoOpenAnime.Begin();
+            menuPhotoOpenAnime_left.Begin();
+
+            //init photo
+            camera = new PhotoCamera(CameraType.Primary);
+            camera.Initialized += camera_Initialized;
+            camera.CaptureImageAvailable += camera_CaptureImageAvailable;
+            //camera.Resolution = camera.AvailableResolutions.First((Size a) => { return a.Width/a.Height == 9.0/16.0;});
+
+            campreview = new VideoBrush();
+            campreview.SetSource(camera);
+            cnv_preview.Background = campreview;
+            campreview.RelativeTransform = new CompositeTransform() { CenterX = 0.5, CenterY = 0.5, Rotation = 90, ScaleY = 1.3333 };
+        }
+
+        void camera_CaptureImageAvailable(object sender, ContentReadyEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(delegate()
+            {
+                ImageBrush imgBrush = new ImageBrush();
+                BitmapImage img = new BitmapImage();
+                img.SetSource(e.ImageStream);
+                imgBrush.ImageSource = img;
+                imgBrush.RelativeTransform = new CompositeTransform() { CenterX = 0.5, CenterY = 0.5, Rotation = 90, ScaleY = 1.3333 };
+                cnv_paint.Background = imgBrush;
+                cnv_preview.Background = new SolidColorBrush(Colors.Transparent);
+            });
+        }
+
+        void camera_Initialized(object sender, CameraOperationCompletedEventArgs e)
+        {
+        }
+
+        private void OnPhoto(object sender, RoutedEventArgs e)
+        {
+            try { camera.Focus(); }
+            catch { }
+            camera.CaptureImage();
+
+            menuPhotoCloseAnime.Begin();
+            menuPhotoCloseAnime_left.Begin();
+            menuSubMainAnime.Begin();
+            menuSubMainAnime_left.Begin();
         }
     }
 }
