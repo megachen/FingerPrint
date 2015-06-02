@@ -846,21 +846,40 @@ namespace FingerPrint
             List<double> ang_stat = new List<double>(angles);
             ang_stat.RemoveRange(0, 1); ang_stat.RemoveRange(ang_stat.Count - 1, 1);
             ang_stat.Sort();
+            double avg_ang = Math.Abs(CalcAverage(ang_stat));
             double q1 = ang_stat[ang_stat.Count / 4], q2 = ang_stat[ang_stat.Count / 2], q3 = ang_stat[ang_stat.Count * 3 / 4];
-            double split_top = (q3 - q1) * 2 + q3, split_down = q1 - (q3 - q1) * 2;
+            double split_top1 = (q3 - q1) * 2 + q3, split_down1 = q1 - (q3 - q1) * 2, split_top2 = q2 + avg_ang, split_down2 = q2 - avg_ang;
+            if (split_top2 > split_top1) split_top2 = split_top1;
+            if (split_down2 > split_down1) split_down2 = split_down1;
 
             for(int i=1;i<angles.Count-1;i++)
             {
-                if (angles[i] >= split_top || angles[i] <= split_down)
+                if (angles[i] >= split_top1 || angles[i] <= split_down1)
                 {
                     int pos = i;
                     i++; if (i > angles.Count - 2) break;
-                    while (angles[i] >= split_top || angles[i] <= split_down)
+                    while (angles[i] >= split_top2 || angles[i] <= split_down2)
                     {
                         if (Math.Abs(angles[i]) > Math.Abs(angles[i - 1])) pos = i;
                         i++; if (i > angles.Count - 2) break;
                     }
                     ret.Add(pos);
+                }
+                if ((angles[i] < split_top1 && angles[i] > split_top2) || (angles[i] < split_down2 && angles[i] > split_down1))
+                {
+                    int pos = i;
+                    i++; if (i > angles.Count - 2) break;
+                    bool f = true;
+                    while (angles[i] >= split_top2 || angles[i] <= split_down2)
+                    {
+                        if (Math.Abs(angles[i]) > Math.Abs(angles[i - 1]))
+                        {
+                            f = false;
+                            break;
+                        }
+                        i++; if (i > angles.Count - 2) break;
+                    }
+                    if (f) ret.Add(pos + (i-pos) / 2);
                 }
             }
 
